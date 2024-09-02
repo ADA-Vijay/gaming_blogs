@@ -1,0 +1,216 @@
+.footerWrap {
+  color: var(--headerColor);
+  /* background-color: var(--headerBg); */
+  background-color: #202020;
+}
+.footerBody {
+  display: grid;
+  grid-template-columns: 25.333% 74.6666%;
+  padding: 35px 0px;
+}
+.footerContentItem {
+  display: grid;
+  grid-template-columns: 33% 30% 31%;
+}
+.footerLogo {
+  width: 40rem;
+}
+.footerLogoImg {
+  margin-bottom: 1rem;
+}
+.footerLogoImg img {
+  width: 285px;
+  height: 100%;
+}
+.footerContent p {
+  color: #b6b5b5;
+  display: none;
+}
+.footerLinkTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+}
+.footerInstagram {
+  margin-right: 2.5rem;
+  visibility: hidden;
+}
+.footerNewsletter {
+}
+.footerSearchInput {
+  position: relative;
+  margin-top: 2rem;
+}
+.footerSearchInput input {
+  padding-left: 0;
+  padding-right: 3.2rem;
+  background-color: var(--bodyBg);
+  color: var(--headerBg);
+  font-size: 1.6rem;
+  border: 0;
+  border-bottom: 1px solid var(--headerBg);
+  border-radius: 0;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.footerSearchInput input::placeholder {
+  color: var(--headerBg);
+  opacity: 1; /* Firefox */
+  text-transform: uppercase;
+}
+
+.footerSearchInput input::-ms-input-placeholder {
+  /* Edge 12-18 */
+  color: var(--headerBg);
+  text-transform: uppercase;
+}
+.footerSearchInput input:hover,
+.footerSearchInput input:active,
+.footerSearchInput input:focus {
+  background-color: var(--bodyBg);
+  color: var(--headerBg);
+  border: 0;
+  border-bottom: 1px solid var(--headerBg);
+  border-radius: 0;
+  box-shadow: unset;
+}
+.link {
+  font-weight: normal !important; /* Ensure font-weight is set to normal */
+  text-decoration: none; /* Remove underline if desired */
+  color: #f9f7f7;
+  background-color: #202020;
+  font-family: sans-serif;
+}
+
+.link li {
+  font-weight: normal !important; 
+  text-decoration: none;
+  color: #f9f7f7;
+  background-color: #202020;
+}
+.footerSearchIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  color: var(--headerBg);
+}
+.footerSearchIcon svg {
+  height: 15px;
+  width: 15px;
+}
+.footerMediaImg {
+}
+.footerMediaImg ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+}
+.footerMediaImg ul img {
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 768px) {
+  .footerBody {
+    grid-template-columns: 100%;
+  }
+  .footerContentItem {
+    grid-template-columns: 100%;
+  }
+  .footerNewsletter {
+    margin-top: 2rem;
+  }
+  .footerWrap .container {
+    padding: 5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center !important;
+    row-gap: 2rem;
+  }
+  .footer-ul1 ul {
+    display: block !important;
+    text-align: center;
+  }
+  .li-line {
+    border: none !important;
+  }
+  .smallDesc {
+    text-align: center;
+  }
+  .footer-ul2 {
+    justify-content: center !important;
+  }
+  .footer-ul1 li {
+    padding-top: 1rem;
+    font-size: 1.3rem !important;
+  }
+}
+
+.contactUs {
+  margin-top: 20px;
+}
+
+.contactUs a {
+  text-decoration: none !important;
+  color: white;
+}
+.footer-ul1 ul {
+  list-style: none;
+  display: flex;
+  padding-left: 0%;
+  gap: 7px;
+}
+.footer-ul1 ul li {
+  font-size: 1.1rem;
+}
+.li-line {
+  border-left: 2px solid grey;
+  border-right: 2px solid grey;
+  padding: 0 4px;
+}
+.li-line:last-child {
+  border-right: none !important;
+}
+.footer-ul2 {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+  padding-left: 0;
+  justify-content: center;
+}
+.bold-li {
+  font-weight: 600;
+  padding-right: 0.8rem;
+}
+.smallDesc {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+  font-family: sans-serif;
+}
+.footerItem1 {
+}
+.footerItem2 {
+  display: flex;
+  align-items: end;
+}
+.footerWrap .container {
+  padding: 5rem 0;
+  display: flex;
+  justify-content: center;
+}
+.item-ul-wrap {
+  list-style: none;
+  padding-left: 0;
+}
+.item-ul-li-last {
+  padding-top: 2.5rem;
+}

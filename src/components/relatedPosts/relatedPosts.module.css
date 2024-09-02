@@ -1,0 +1,82 @@
+.container {
+    padding-bottom: 5rem;
+}
+.relatedpost-title {
+    font-size: 4rem;
+    padding-top: 2rem;
+}
+.contentWrap p {
+    font-size: 1.5rem !important;
+    line-height: 23px !important;
+    margin-top: 0.5rem !important;
+}
+
+.post-card-wrap {
+    display: flex;
+    gap: 2rem;
+    margin-top: 5rem;
+}
+.post-img-div {
+    height: 39%;
+}
+.post-img-div img {
+    margin-top: 0 !important;
+    width: 100%;
+    height: 100%;
+}
+.green-p {
+    color: #007852;
+    font-size: 1.3rem;
+    padding-top: 1rem;
+}
+.desc-p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.5rem;
+    line-height: 23px;
+    padding-top: 2rem;
+}
+.name-p {
+    font-size: 1.1rem;
+    font-weight: 100;
+}
+@media screen and (max-width: 768px) {
+    .container-wrap { 
+        margin: auto;
+        width: auto !important;
+    }
+    .container {
+        margin-left: 0;
+        margin-right: 0;
+        padding-bottom: 5rem;
+    }
+    .post-card-wrap a {
+        width: 100% !important;
+    }
+
+}
+@media screen and (max-width: 614px) {
+    .post-card-wrap a {
+        width: 100% !important;
+    }
+}
+@media screen and (max-width: 368px) {
+    .post-card-wrap {
+        gap: 1rem !important;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+.post-card-wrap a {
+    text-decoration: none;
+    color: rgb(22, 22, 22);
+}
+
+.image {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+}
