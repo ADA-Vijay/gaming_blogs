@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "@/app/page.module.css";
 import Link from "next/link";
+import { fetchFromAPI } from "@/utils/fetchData";
 
 const Listing = ({ newdata, apiUrl }) => {
   const [data, setData] = useState(newdata);
@@ -41,8 +42,8 @@ const Listing = ({ newdata, apiUrl }) => {
     setLoading(true);
     try {
       if (hitApi && apiUrl) {
-        const url = `${apiUrl}&per_page=10&page=${page + 1}&_embed`;
-        const response = await fetch(url);
+        // const url = `${apiUrl};
+        const response = await fetchFromAPI(`&per_page=10&page=${page + 1}&_embed`);
         if (!response.ok) {
           setHitApi(false);
           throw new Error(`HTTP error! Status: ${response.status}`);

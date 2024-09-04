@@ -3,53 +3,61 @@ import React from "react";
 import styles from "./navbar.module.css";
 import stylePage from "../../app/page.module.css";
 import SearchComponent from "@/components/search/search";
-import SideBar from '@/components/sideBar/sideBar'
-async function getData() {
-  const res = await fetch(
-    "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories?per_page=100",
-    {
-      next: { revalidate: 180 },
-    }
-  );
+import SideBar from "@/components/sideBar/sideBar";
+import { fetchFromAPI } from "@/utils/fetchData";
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+async function getData() {
+  // const res = await fetch(
+  //   "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories?per_page=100",
+  //   {
+  //     next: { revalidate: 180 },
+  //   }
+  // );
+  const res = await fetchFromAPI("categories?per_page=100", {
+    next: { revalidate: 180 },
+  });
+
+  // if (!res.ok) {
+  //   throw new Error("Failed to fetch data");
+  // }
+  if (res && res.length > 0) {
+    return res;
   }
 
-  const rawData = await res.json();
-  const organizedData = organizeCategories(rawData);
-  return organizedData;
+  // const rawData = await res.json();
+  // const organizedData = organizeCategories(rawData);
+  // return organizedData;
 }
-function organizeCategories(data) {
-  const organizedList = [];
-  const parentMap = {};
-  data.forEach((item) => {
-    if (item.parent === 0) {
-      organizedList.push({
-        id: item.id,
-        name: item.name,
-        slug: item.slug,
-        children: [],
-      });
-    } else {
-      if (!parentMap[item.parent]) {
-        parentMap[item.parent] = [];
-      }
-      parentMap[item.parent].push({
-        id: item.id,
-        name: item.name,
-        slug: item.slug,
-      });
-    }
-  });
+// function organizeCategories(data) {
+//   const organizedList = [];
+//   const parentMap = {};
+//   data.forEach((item) => {
+//     if (item.parent === 0) {
+//       organizedList.push({
+//         id: item.id,
+//         name: item.name,
+//         slug: item.slug,
+//         children: [],
+//       });
+//     } else {
+//       if (!parentMap[item.parent]) {
+//         parentMap[item.parent] = [];
+//       }
+//       parentMap[item.parent].push({
+//         id: item.id,
+//         name: item.name,
+//         slug: item.slug,
+//       });
+//     }
+//   });
 
-  organizedList.forEach((parent) => {
-    const children = parentMap[parent.id] || [];
-    parent.children = children;
-  });
+//   organizedList.forEach((parent) => {
+//     const children = parentMap[parent.id] || [];
+//     parent.children = children;
+//   });
 
-  return organizedList;
-}
+//   return organizedList;
+// }
 
 const Navbar = async () => {
   const data = await getData();
@@ -69,7 +77,7 @@ const Navbar = async () => {
               className={styles.mobLogo}
               src="/gwlogo (1).png"
               alt="logo"
-              style={{width:"100%",}}
+              style={{ width: "100%" }}
             />
           </Link>
           <div className={styles.navItems}>

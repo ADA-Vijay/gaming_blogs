@@ -4,7 +4,7 @@ import ListingPage from "@/components/listing/listing";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
-
+import { fetchFromAPI } from "@/utils/fetchData";
 async function getData() {
   const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
   const trendingId = 606508208;
@@ -12,20 +12,18 @@ async function getData() {
     const response = await fetch(
       ApiUrl + "posts?per_page=10&order=desc&orderby=date&_embed=1",
       {
-        next: {revalidate:180},
+        next: { revalidate: 180 },
       }
     );
     const newdata = await response.json();
 
-
     const trending = await fetch(
       `${ApiUrl}posts?tags=${trendingId}&_embed&per_page=4&orderby=date&order=desc`,
       {
-        next: {revalidate:180},
+        next: { revalidate: 180 },
       }
     );
     const trendingPosts = await trending.json();
-
     if (trendingPosts) {
       return {
         newdata,
@@ -37,21 +35,38 @@ async function getData() {
   }
 }
 
+async function getcategoryData() {
+  try {
+    const categoryResponse = await fetchFromAPI("categories", {
+      next: { revalidate: 180 },
+    });
+    const postResponse = await fetchFromAPI("posts?_embed&per_page=20", {
+      next: { revalidate: 180 },
+    });
+
+
+    const groupedPosts = await categoryResponse.map((category) => {
+      const postsInCategory = postResponse.filter((post) =>
+        post.categories.includes(category.id)
+      );
+      return {
+        category,
+        posts: postsInCategory,
+      };
+    });
+
+    if (groupedPosts) {
+      return groupedPosts;
+    }
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+}
+
 export async function generateMetadata({ params }) {
   const { newdata, trendingPosts } = await getData(params.query);
   if (newdata && newdata.length > 0) {
-    //   return {
-    //     title: newdata[0].yoast_head_json.title,
-    //      description: newdata[0].yoast_head_json.description,
-    //      images: [
-    //        {
-    //          url: newdata[0].yoast_head_json.og_image[0].url,
-    //          height: 1200,
-    //          width: 600,
-    //          alt: "Alt",
-    //        },
-    //      ],
-    //  };
     return {
       title: "GameWitted",
       description:
@@ -70,35 +85,32 @@ export async function generateMetadata({ params }) {
 
 const Home = async () => {
   const { newdata, trendingPosts } = await getData();
-  const apiUrl = "posts?per_page=10&order=desc&orderby=date&_embed=1"
+  const data = await getcategoryData();
+  
   return (
     <>
-    <Head>
-    <link href={"/favicon.ico"} rel={"icon"} sizes="any" />
-    </Head>
-      <main className=''>
-        <HeroBanner></HeroBanner>
+      <Head>
+        <link href={"/favicon.ico"} rel={"icon"} sizes="any" />
+      </Head>
+      <main className="">
+        <HeroBanner data={data.slice(0,1)}></HeroBanner>
         <div className={styles.promoWrap}>
           <div className={styles.container}>
             <h1 className={styles.promoTitle}>Popular Categories</h1>
             <div className={styles.promoBody}>
-              {/* <div className={styles.promoTitles}>
-                <h4>POPULAR CATEGORIES</h4>
-                <div className={styles.headingLine}></div>
-              </div> */}
               <div className={styles.promoBox}>
-                {trendingPosts && trendingPosts.length > 0
-                  ? trendingPosts.map((card, index) => (
+                {data && data.length > 0
+                  ? data.map((card, index) => (
                       <Link
                         key={index}
                         prefetch={true}
-                        href={`/${card._embedded["wp:term"][0][0].slug}/`}
+                        href={`/${card.posts[0]._embedded["wp:term"][0][0].slug}/`}
                         className={styles.promoborder}
                       >
                         <div className={styles.promoBoxItem} key={index}>
                           <Image
                             className={styles.promoImg}
-                            src={card.jetpack_featured_media_url}
+                            src={card.posts[0].jetpack_featured_media_url}
                             alt="Image"
                             loading="lazy"
                             width={500}
@@ -106,7 +118,7 @@ const Home = async () => {
                           />
                           <div className={styles.promoInfo} key={index}>
                             <h4 className={styles.promoName}>
-                              {card._embedded["wp:term"][0][0].name}
+                              {card.posts[0]._embedded["wp:term"][0][0].name}
                             </h4>
                           </div>
                         </div>
@@ -117,16 +129,11 @@ const Home = async () => {
             </div>
           </div>
         </div>
-        <HeroBanner></HeroBanner>
-        <HeroBanner></HeroBanner>
-
-        {/* <div className={styles.container}>
-          <div className={styles.promoTitles}>
-            <h4>Latest</h4>
-            <div className={styles.headingLine}></div>
-          </div>
-        </div> */}
-        <ListingPage newdata={newdata} apiUrl={""}/>
+        {data && data.length > 1 && (
+          <HeroBanner data={data.slice(1)}></HeroBanner>
+        )}
+        {/* <HeroBanner></HeroBanner> */}
+        <ListingPage newdata={newdata} apiUrl={""} />
       </main>
     </>
   );

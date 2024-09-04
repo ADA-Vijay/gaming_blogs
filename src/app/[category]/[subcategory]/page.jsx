@@ -3,13 +3,13 @@ import styles from "@/app/page.module.css";
 import { notFound } from "next/navigation";
 import RelatedPosts from "@/components/relatedPosts/relatedPosts";
 import Link from "next/link";
+import { fetchFromAPI } from "@/utils/fetchData";
+
 async function getData(subcategory) {
-  const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
   try {
-    const response = await fetch(ApiUrl + `posts?slug=${subcategory}&_embed`, {
+    const data = await fetchFromAPI(`posts?slug=${subcategory}&_embed`, {
       next: { revalidate: 180 },
     });
-    const data = await response.json();
     return data && data.length > 0 ? data : null;
   } catch (error) {
     return {
@@ -22,22 +22,16 @@ async function getData(subcategory) {
 
 const getPostByCategory = async (params) => {
   if (params) {
-    const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
-
-    const categoryResponse = await fetch(
-      `${ApiUrl}categories?slug=${params.category}`
+    const catgoryData = await fetchFromAPI(
+      `categories?slug=${params.category}`
     );
-    if (categoryResponse) {
-      const catgoryData = await categoryResponse.json();
+    if (catgoryData) {
       try {
         const categoryId = catgoryData[0].id;
-        const postData = await fetch(
-          "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/posts?categories=" +
-            categoryId +
-            "&_embeded"
+        const posts = await fetchFromAPI(
+          "posts?categories=" + categoryId + "&_embeded"
         );
-        if (postData) {
-          const posts = await postData.json();
+        if (posts) {
           return posts;
         }
         console.log(postData);
@@ -153,7 +147,13 @@ const page = async ({ params }) => {
                               }}
                             ></h1>
                             <div className={styles["author-section"]}>
-                              <Link href={`/author/${data[0]._embedded.author[0].name.replace(" ","-")}`} className="description">
+                              <Link
+                                href={`/author/${data[0]._embedded.author[0].name.replace(
+                                  " ",
+                                  "-"
+                                )}`}
+                                className="description"
+                              >
                                 {data[0]._embedded.author[0].name}&nbsp;|&nbsp;
                               </Link>
                               <span>
@@ -195,13 +195,19 @@ const page = async ({ params }) => {
                       <div>
                         <h3 className={styles.authorTitle}>About Author</h3>
                         <div className={styles.authorNameDiv}>
-                          <Link href={`/author/${data[0]._embedded.author[0].name.replace(" ","-")}`} className={styles.authorName}>
+                          <Link
+                            href={`/author/${data[0]._embedded.author[0].name.replace(
+                              " ",
+                              "-"
+                            )}`}
+                            className={styles.authorName}
+                          >
                             {data[0]._embedded.author[0].name}
                           </Link>
                         </div>
                         <div>
                           <span className={styles.authorDescription}>
-                          {data[0]._embedded.author[0].description}
+                            {data[0]._embedded.author[0].description}
                           </span>
                         </div>
                       </div>
