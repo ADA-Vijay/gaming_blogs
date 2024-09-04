@@ -93,9 +93,7 @@ const Page = async ({ params }) => {
   return (
     <>
       <div className={styles.latestWrap}>
-        <Container>{/* <HeroBanner></HeroBanner> */}</Container>
       </div>
-      {/* <BreadCrumb category={category} subcategory={""}></BreadCrumb> */}
       <ListingPage newdata={data} apiUrl={url} />
     </>
   );
