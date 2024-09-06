@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
 
 .container,
 .container_fluid,
@@ -17,7 +17,6 @@
 }
 
 @media (min-width: 576px) {
-
   .container-sm,
   .container {
     max-width: 540px;
@@ -25,7 +24,6 @@
 }
 
 @media (min-width: 768px) {
-
   .container-md,
   .container-sm,
   .container {
@@ -34,7 +32,6 @@
 }
 
 @media (min-width: 992px) {
-
   .container-lg,
   .container-md,
   .container-sm,
@@ -44,7 +41,6 @@
 }
 
 @media (min-width: 1200px) {
-
   .container-xl,
   .container-lg,
   .container-md,
@@ -55,7 +51,6 @@
 }
 
 @media (min-width: 1400px) {
-
   .container-xxl,
   .container-xl,
   .container-lg,
@@ -80,7 +75,29 @@
   background-color: #232425;
 } */
 
+.btnRelatedTopics {
+  padding: 1.3rem;
+  margin: 1rem;
+  text-decoration: none;
+  background-color: #fffbfb;
+  color: black !important;
+}
+.authorSection .authorTitle{
+  color:white !important;
+}
+.authorSection .authorName {
+  padding: 1rem 2rem 1rem 2rem !important;
+  margin: 1rem;
+  background-color: white;
+  color: black !important;
+}
+.authorSection {
+  margin-top: 3rem;
+}
 
+.relatedTopic {
+  margin-bottom: 2rem !important;
+}
 .heroCardBody {
   display: grid;
   grid-template-columns: 50% 40%;
@@ -114,7 +131,6 @@
   align-items: end;
   box-shadow: rgba(0, 0, 0, 0.952) 0px 5px 15px;
   border: 1px solid #3b3b3b;
-
 }
 
 .heroCardBoxItem2 {
@@ -189,7 +205,7 @@
 
 .heroCardBoxItemBags::before {
   display: block;
-  content: '';
+  content: "";
   background-color: #9b2323;
   width: 1rem;
   height: 1rem;
@@ -208,7 +224,7 @@
   font-family: "Marcellus", serif;
   letter-spacing: 2px;
   margin-bottom: 8px;
-  margin-left: 8px
+  margin-left: 8px;
 }
 
 .heroCardBoxPattern {
@@ -236,9 +252,9 @@
 }
 
 .promoTitle {
-  color: white;
-  text-transform: uppercase;
-  padding-top: 3.1rem;
+  color: white !important;
+  text-transform: uppercase !important;
+  padding-top: 3.1rem !important;
   font-family: "Oswald";
 }
 
@@ -247,9 +263,11 @@
   height: 2.5rem;
 }
 
-.promoWrap {}
+.promoWrap {
+}
 
-.promoBody {}
+.promoBody {
+}
 
 .promoBox {
   display: grid;
@@ -291,7 +309,7 @@
 }
 
 .promoBoxItem::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 84%;
@@ -317,8 +335,6 @@
   z-index: 2;
 }
 
-
-
 .promoName {
   font-size: 1.6rem;
   margin: 0;
@@ -326,13 +342,13 @@
   font-weight: 600;
   font-family: "Marcellus", serif;
   letter-spacing: 2px;
-  text-shadow: 0 0 3px rgba(255, 255, 255, .5), 0 0 3px rgba(255, 255, 255, .5), 0 0 3px rgba(255, 255, 255, .5);
-  background: rgba(35, 36, 37, .6509803922);
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.5),
+    0 0 3px rgba(255, 255, 255, 0.5), 0 0 3px rgba(255, 255, 255, 0.5);
+  background: rgba(35, 36, 37, 0.6509803922);
   margin-bottom: 1rem;
   border-radius: 5px 20px;
   padding: 5px 25px;
 }
-
 
 .promoBoxItem:hover::after {
   background-color: #0a0a0a65;
@@ -340,7 +356,8 @@
 }
 
 /* latest */
-.latestWrap {}
+.latestWrap {
+}
 
 .latestBody {
   display: grid;
@@ -447,8 +464,8 @@
   color: white !important;
 }
 
-
-.latestContent2 {}
+.latestContent2 {
+}
 
 .latestContent2Wrap {
   margin-top: 1.5rem;
@@ -461,7 +478,7 @@
 }
 
 .latestContent2Wrap h1::after {
-  content: '';
+  content: "";
   display: block;
   width: 100%;
   height: 0.01rem;
@@ -491,15 +508,15 @@
 }
 
 .latestContent2Data .latestBoxItemWrap::after {
-  content: '';
+  content: "";
   display: block;
   width: 100%;
   height: 0.01rem;
   background-color: rgb(60, 60, 60);
 }
 
-
-.trendingTopWrap {}
+.trendingTopWrap {
+}
 
 .listingDetailsWrap {
   padding-bottom: 2.5rem;
@@ -526,7 +543,8 @@
   text-transform: uppercase;
 }
 
-.trendingTopBody {}
+.trendingTopBody {
+}
 
 .trendingTopBody ul {
   list-style: none;
@@ -807,10 +825,11 @@
   }
 }
 
-
 .authorTitle {
   margin-bottom: 2rem;
+  margin-top: 2rem;
 }
+
 
 .authorName {
   background-color: black;

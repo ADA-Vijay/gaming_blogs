@@ -10,7 +10,17 @@ async function getData(subcategory) {
     const data = await fetchFromAPI(`posts?slug=${subcategory}&_embed`, {
       next: { revalidate: 180 },
     });
-    return data && data.length > 0 ? data : null;
+
+    if (data && data.length > 0) {
+      const postTags = data[0].tags;
+      if (postTags && postTags.length > 0) {
+        const tagIds = postTags.join(",");
+        const tagData = await fetchFromAPI(`tags?include=${tagIds}`);
+        return { post: data[0], tags: tagData };
+      }
+      return { post: data[0], tags: [] };
+    }
+    return null;
   } catch (error) {
     return {
       props: {
@@ -71,30 +81,15 @@ export async function generateMetadata({ params }) {
           site: "GameWitted",
         },
       },
-      // alternates: {
-      //   canonical: `https://www.gamewitted.com/${params.category}/${params.subcategory}`,
-      // },
     };
   }
-  // else{
-  //   return {
-  //     title: "GameWitted",
-  //      description: "Welcome to AshGamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
-  //      images: [
-  //        {
-  //          url: "https://fama.b-cdn.net/gw/gwlogo.png",
-  //          height: 1200,
-  //          width: 600,
-  //          alt: "Alt",
-  //        },
-  //      ],
-  //  };
-  // }
 }
 const page = async ({ params }) => {
   const category = params.category;
   const subcategory = params.subcategory;
   const data = await getData(subcategory);
+  const { post, tags } = data;
+
   const formatDate = (isoDate) => {
     const options = { day: "2-digit", month: "long", year: "numeric" };
     const date = new Date(isoDate);
@@ -120,7 +115,6 @@ const page = async ({ params }) => {
     }
   };
 
-  // Wait for layout to update and then scroll to the section
   if (hash) {
     setTimeout(() => {
       scrollToSection(hash);
@@ -128,42 +122,38 @@ const page = async ({ params }) => {
   }
   return (
     <>
-      {data && data.length > 0 && (
+      {post && (
         <>
           <div className={styles.latestWrap}>
             <div className={styles.container}>
-              {/* <BreadCrumb category={category} subcategory={subcategory} /> */}
               <div className={styles.listingDetailsWrap}>
                 <div className={styles.latestBody}>
                   <div className={styles.latestContent}>
                     <div className={styles.listingDetailsBody}>
                       <div className={styles.latestBox}>
-                        {data && data.length > 0 ? (
+                        {post ? (
                           <>
                             <h1
                               className={`${styles.listingDetailMainTitle} mb-4`}
                               dangerouslySetInnerHTML={{
-                                __html: data[0].title.rendered,
+                                __html: post.title.rendered,
                               }}
                             ></h1>
                             <div className={styles["author-section"]}>
                               <Link
-                                href={`/author/${data[0]._embedded.author[0].name.replace(
+                                href={`/author/${post._embedded.author[0].name.replace(
                                   " ",
                                   "-"
                                 )}`}
                                 className="description"
                               >
-                                {data[0]._embedded.author[0].name}&nbsp;|&nbsp;
+                                {post._embedded.author[0].name}&nbsp;|&nbsp;
                               </Link>
-                              <span>
-                                {" "}
-                                Published: {formatDate(data[0].date)}
-                              </span>
+                              <span> Published: {formatDate(post.date)}</span>
                             </div>
                             <div className={styles.listingDetailMainImg}>
                               <img
-                                src={data[0].jetpack_featured_media_url}
+                                src={post.jetpack_featured_media_url}
                                 alt="img"
                               />
                             </div>
@@ -173,14 +163,30 @@ const page = async ({ params }) => {
                             >
                               <div
                                 dangerouslySetInnerHTML={{
-                                  __html: data[0].content.rendered,
+                                  __html: post.content.rendered,
                                 }}
                               ></div>
-                              {data && data.length > 0 && (
-                                <RelatedPosts
-                                  category={params.category}
-                                  data={categoryPosts}
-                                ></RelatedPosts>
+                              {post && (
+                                <>
+                                  <RelatedPosts
+                                    category={params.category}
+                                    data={categoryPosts}
+                                  ></RelatedPosts>
+                                  {tags.length > 0 && (
+                                    <>
+                                      <h1 className={styles.relatedTopic}>Related Topics</h1>
+                                      {tags.map((tag) => (
+                                        <Link
+                                          key={tag.id}
+                                          className={styles.btnRelatedTopics}
+                                          href={`/tag/${tag.slug}`}
+                                        >
+                                          {tag.name}
+                                        </Link>
+                                      ))}
+                                    </>
+                                  )}
+                                </>
                               )}
                             </div>
                           </>
@@ -192,22 +198,22 @@ const page = async ({ params }) => {
                           </div>
                         )}
                       </div>
-                      <div>
+                      <div className={styles.authorSection}>
                         <h3 className={styles.authorTitle}>About Author</h3>
                         <div className={styles.authorNameDiv}>
                           <Link
-                            href={`/author/${data[0]._embedded.author[0].name.replace(
+                            href={`/author/${post._embedded.author[0].name.replace(
                               " ",
                               "-"
                             )}`}
                             className={styles.authorName}
                           >
-                            {data[0]._embedded.author[0].name}
+                            {post._embedded.author[0].name}
                           </Link>
                         </div>
                         <div>
                           <span className={styles.authorDescription}>
-                            {data[0]._embedded.author[0].description}
+                            {post._embedded.author[0].description}
                           </span>
                         </div>
                       </div>
@@ -217,32 +223,6 @@ const page = async ({ params }) => {
               </div>
             </div>
           </div>
-
-          {/* <div className={styles.trendingTopWrap}>
-            <div>
-              <img
-                src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR4El1B5cOf9EjkuWgq4J_2RBIjo4jmzznJ8_3aMgezV3h3DJpE"
-                alt="img"
-              />
-            </div>
-            <div className={styles.trendingTopHead}>
-              <div
-                className={styles.trendingTopTitle}
-              >
-                trending topics
-              </div>
-              <div className={styles.trendingTopBody}>
-                <ul>
-                  {trendingTopData.map((card, index) => (
-                    <li key={index}>
-                      <h4>{card.name}</h4>
-                      <p>{card.activeDate}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div> */}
         </>
       )}
     </>

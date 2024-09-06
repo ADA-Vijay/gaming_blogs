@@ -1,5 +1,23 @@
 import React from "react";
 import styles from "@/app/privacy-policy/page.module.css";
+export async function generateMetadata() {
+  return {
+    title: "about us",
+    description:
+      "GameWitted.com is your destination for the latest gaming content,esports coverage, and in-depth anime analysis. Founded in 2024, we'rean independent digital publisher committed to delivering high-quality,insightful content to our ever-growing community of passionate gamers and anime enthusiasts.",
+    openGraph: {
+      images: [
+        {
+          url: "https://fama.b-cdn.net/gw/gwlogo.png",
+          height: 1200,
+          width: 600,
+          alt: "Alt",
+        },
+      ],
+    },
+  };
+}
+
 const page = () => {
   return (
     <>
@@ -164,8 +182,9 @@ const page = () => {
           experience and keep you at the forefront of gaming culture.
         </span>
         <span className={styles.description}>
-        Join us as we continue to shape the landscape of gaming and anime content creation.
-        GameWitted: Where Gaming Wisdom Meets Passion, and Every Player Has a Voice.
+          Join us as we continue to shape the landscape of gaming and anime
+          content creation. GameWitted: Where Gaming Wisdom Meets Passion, and
+          Every Player Has a Voice.
         </span>
       </div>
     </>

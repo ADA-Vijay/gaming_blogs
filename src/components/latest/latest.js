@@ -2,37 +2,46 @@ import React from "react";
 import styles from "@/app/page.module.css";
 import Link from "next/link";
 import "react-multi-carousel/lib/styles.css";
-
-const HeroBanner = async (data) => {
+import { fetchFromAPI } from "@/utils/fetchData";
+const getLatestPosts = async () => {
+  const posts = await fetchFromAPI(
+    "posts?per_page=5&order=desc&orderby=date&_embed=1"
+  );
+  if (posts && posts.length > 0) {
+    return posts;
+  }
+};
+const LatestPosts = async () => {
+  const data = await getLatestPosts();
   return (
     <div className={styles.heroCardWrap}>
       <div className={styles.container}>
-        {data && data.data.map((e, categoryIndex) => (
-          <div key={categoryIndex}>
-            <Link href={`/${e.slug}`} className={styles.promoTitle}>{ e.name}</Link>
+        <div >
+          <h1 className={styles.promoTitle}>Latest</h1>
+          {data && data.length > 0 && (
             <div className={styles.heroCardBody}>
-              {e.posts && e.posts.length > 0 && (
+              {data[0] && (
                 <div className={styles.heroCardBox2}>
                   <Link
-                    key={e.posts[0].id}
+                    key={data[0].id}
                     prefetch={true}
-                    href={`/${e.slug}/${e.posts[0].slug}`}
+                    href={`/${data[0]._embedded["wp:term"]?.[0]?.[0]?.slug}/${data[0].slug}`}
                     className={styles.heroCardMobile}
                   >
                     <div
                       className={styles.heroCardBoxItem2}
                       style={{
-                        background: `url(${e.posts[0]._embedded["wp:featuredmedia"][0].source_url})`,
+                        background: `url(${data[0]._embedded["wp:featuredmedia"][0].source_url})`,
                       }}
                     >
                       <div className={styles.heroCardBoxItemInfo}>
                         <h6 className={styles.heroCardBoxItemBags}>
-                          {e.posts[0]._embedded["wp:term"][0][0].name}
+                          {data[0]._embedded["wp:term"][0][0].name}
                         </h6>
                         <h4
                           className={styles.heroCardBoxItemName}
                           dangerouslySetInnerHTML={{
-                            __html: e.posts[0].title.rendered,
+                            __html: data[0].title.rendered,
                           }}
                         ></h4>
                       </div>
@@ -42,8 +51,8 @@ const HeroBanner = async (data) => {
               )}
 
               <div className={styles.heroCardBox}>
-                {e.posts &&
-                  e.posts.slice(1).map((card, index) => (
+                {data &&
+                  data.slice(1).map((card, index) => (
                     <Link
                       key={index}
                       prefetch={true}
@@ -72,11 +81,11 @@ const HeroBanner = async (data) => {
                   ))}
               </div>
             </div>
-          </div>
-        ))}
+          )}
+        </div>
       </div>
     </div>
   );
 };
 
-export default HeroBanner;
+export default LatestPosts;

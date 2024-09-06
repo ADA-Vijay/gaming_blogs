@@ -1,5 +1,22 @@
 import React from "react";
 import styles from "@/app/privacy-policy/page.module.css";
+export async function generateMetadata() {
+  return {
+    title: "Privaacy and Policy",
+    description:
+      "At GameWitted, we value the privacy of our readers and are committed to protecting your personal information. This privacy policy outlines how we collect, use, and safeguard the data you provide when visiting our website.",
+    openGraph: {
+      images: [
+        {
+          url: "https://fama.b-cdn.net/gw/gwlogo.png",
+          height: 1200,
+          width: 600,
+          alt: "Alt",
+        },
+      ],
+    },
+  };
+}
 const page = () => {
   return (
     <>

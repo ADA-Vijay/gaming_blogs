@@ -4,8 +4,8 @@ import styles from "@/app/page.module.css";
 import Link from "next/link";
 import { fetchFromAPI } from "@/utils/fetchData";
 
-const Listing = ({ newdata, apiUrl }) => {
-  const [data, setData] = useState(newdata);
+const Listing = ({ newData, url }) => {
+  const [data, setData] = useState(newData);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [hasMoreData, setHasMoreData] = useState(true);
@@ -13,11 +13,11 @@ const Listing = ({ newdata, apiUrl }) => {
   const [imageErrors, setImageErrors] = useState({});
 
   useEffect(() => {
-    setData(newdata);
+    setData(newData);
     setPage(1);
     setLoading(false);
     setHasMoreData(true);
-  }, [newdata]);
+  }, [newData]);
 
   useEffect(() => {
     const handleScroll = async () => {
@@ -41,8 +41,7 @@ const Listing = ({ newdata, apiUrl }) => {
     if (loading || !hasMoreData) return;
     setLoading(true);
     try {
-      if (hitApi && apiUrl) {
-        // const url = `${apiUrl};
+      if (hitApi && url) {
         const response = await fetchFromAPI(`&per_page=10&page=${page + 1}&_embed`);
         if (!response.ok) {
           setHitApi(false);

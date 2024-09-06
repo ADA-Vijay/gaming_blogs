@@ -1,4 +1,3 @@
-// utils/fetchFromAPI.js
 
 export async function fetchFromAPI(endpoint, options = {}) {
     const ApiUrl = "http://gamingblogs.local/wp-json/wp/v2/";

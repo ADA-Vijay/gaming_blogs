@@ -1,14 +1,9 @@
 import React from "react";
-import styles from "@/app/page.module.css";
 import Link from "next/link";
 import style from "./relatedPosts.module.css";
 import Image from "next/image";
 const relatedPosts = ({ category, data }) => {
-  const formatDate = (isoDate) => {
-    const options = { day: "2-digit", month: "long", year: "numeric" };
-    const date = new Date(isoDate);
-    return date.toLocaleDateString("en-US", options);
-  };
+
   return (
     <>
       <div className={style["container"]}>
