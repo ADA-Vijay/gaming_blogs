@@ -1,6 +1,6 @@
 
 export async function fetchFromAPI(endpoint, options = {}) {
-    const ApiUrl = "http://gamingblogs.local/wp-json/wp/v2/";
+    const ApiUrl = "https://gameblogs.us23.cdn-alpha.com/wp-json/wp/v2/";
   
     try {
       const response = await fetch(ApiUrl + endpoint, options);

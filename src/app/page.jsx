@@ -6,36 +6,6 @@ import Image from "next/image";
 import Head from "next/head";
 import LatestPosts from "@/components/latest/latest";
 import { fetchFromAPI } from "@/utils/fetchData";
-// async function getData() {
-//   const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
-//   const trendingId = 606508208;
-//   try {
-//     const response = await fetch(
-//       ApiUrl + "posts?per_page=10&order=desc&orderby=date&_embed=1",
-//       {
-//         next: { revalidate: 180 },
-//       }
-//     );
-//     const newdata = await response.json();
-
-//     const trending = await fetch(
-//       `${ApiUrl}posts?tags=${trendingId}&_embed&per_page=4&orderby=date&order=desc`,
-//       {
-//         next: { revalidate: 180 },
-//       }
-//     );
-//     const trendingPosts = await trending.json();
-//     if (trendingPosts) {
-//       return {
-//         newdata,
-//         trendingPosts,
-//       };
-//     }
-//   } catch (error) {
-//     throw new Error("Failed to fetch data");
-//   }
-// }
-
 
 async function getcategoryData() {
   try {
@@ -51,46 +21,115 @@ async function getcategoryData() {
             next: { revalidate: 180 },
           }
         );
-         category.posts = postResponse
-        return category  
+        if (postResponse.length) {
+          category.posts = postResponse;
+          return category;
+        } else {
+          return null;
+        }
       })
-    ) ;
-
-    return groupedPosts;
+    );
+    return groupedPosts.filter((category) => category !== null);
   } catch (error) {
-    console.log(error);
+    console.error("Failed to fetch category data:", error);
     return [];
   }
 }
 
+// const getCategoriesAndPosts = async () => {
+//   try {
+//     const response = await fetch(
+//       "https://gameblogs.us23.cdn-alpha.com/graphql",
+//       {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({
+//           query: `
+//            query GetCategoriesAndPosts {
+//              categories {
+//                nodes {
+//                  id
+//                  name
+//                  slug
+//                  posts(first: 5) {
+//                    nodes {
+//                      id
+//                      title
+//                      slug
+//                      date
+//                      content
+//                      postId
+//                      featuredImage {
+//                        node {
+//                          altText
+//                          link
+//                          slug
+//                          srcSet
+//                          sourceUrl
+//                        }
+//                      }
+//                    }
+//                  }
+//                }
+//              }
+//            }
+//           `,
+//         }),
+//       }
+//     );
+
+//     // Convert response to JSON
+//     const result = await response.json(); // This converts the response to a usable JSON object
+
+//     if (result.errors) {
+//       console.error("GraphQL errors:", result.errors);
+//       return { posts: [] };
+//     }
+
+//     const data = result.data;
+
+//     if (data && data.categories && data.categories.nodes.length > 0) {
+//       return { posts: data.categories.nodes };
+//     }
+//   } catch (err) {
+//     console.error("Error fetching posts by tag slug:", err);
+//   }
+
+//   return { posts: [] };
+// };
+
 
 export async function generateMetadata() {
-    return {
-      title: "",
-      description:
-        "Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!",
-      images: [
-        {
-          url: "https://fama.b-cdn.net/gw/gwlogo.png",
-          height: 1200,
-          width: 600,
-          alt: "Alt",
-        },
-      ],
-    };
+  return {
+    title: "gamersview",
+    description:
+      "Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!",
+    images: [
+      {
+        url: "https://fama.b-cdn.net/gw/gwlogo.png",
+        height: 1200,
+        width: 600,
+        alt: "Alt",
+      },
+    ],
+  };
 }
 
 const Home = async () => {
-  // const { newdata, trendingPosts } = await getData();
   const data = await getcategoryData();
-  
+  // const newData = await getCategoriesAndPosts();
+  // if(newData){
+  //   console.log(newData)
+  // }
   return (
     <>
       <Head>
         <link href={"/favicon.ico"} rel={"icon"} sizes="any" />
       </Head>
       <main className="">
-        <LatestPosts data={data} latest={true}></LatestPosts>
+        <LatestPosts></LatestPosts>
         <div className={styles.promoWrap}>
           <div className={styles.container}>
             <h1 className={styles.promoTitle}>Categories</h1>
@@ -101,7 +140,7 @@ const Home = async () => {
                       <Link
                         key={index}
                         prefetch={true}
-                        href={`/${card.posts[0]._embedded["wp:term"][0][0].slug}/`}
+                        href={`/${card.posts[0]._embedded["wp:term"][0][0].slug}`}
                         className={styles.promoborder}
                       >
                         <div className={styles.promoBoxItem} key={index}>
@@ -126,9 +165,7 @@ const Home = async () => {
             </div>
           </div>
         </div>
-        {data && data.length > 1 && (
-          <HeroBanner data={data}></HeroBanner>
-        )}
+        {data && data.length > 1 && <HeroBanner data={data}></HeroBanner>}
         {/* <ListingPage newdata={newdata} apiUrl={""} /> */}
       </main>
     </>
