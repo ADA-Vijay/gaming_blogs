@@ -56,7 +56,7 @@ const LatestPosts = async () => {
                     <Link
                       key={index}
                       prefetch={true}
-                      href={`/${card.slug}/${card.slug}`}
+                      href={`/${card._embedded["wp:term"]?.[0]?.[0]?.slug}/${card.slug}`}
                       className={styles.heroCardMobile}
                     >
                       <div

@@ -47,7 +47,7 @@ const HeroBanner = async (data) => {
                     <Link
                       key={index}
                       prefetch={true}
-                      href={`/${card.slug}/${card.slug}`}
+                      href={`/${e.slug}/${card.slug}`}
                       className={styles.heroCardMobile}
                     >
                       <div
