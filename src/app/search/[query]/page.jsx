@@ -1,14 +1,13 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import ListingPage from "@/components/listing/listing";
-
+import { fetchFromAPI } from "@/utils/fetchData";
 async function getData(query) {
-  const ApiUrl = "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/";
 
   try {
-    const url = `${ApiUrl}posts?search=${query}`
+    const url = `posts?search=${query}`
     if (query) {
-      const response = await fetch(
+      const response = await fetchFromAPI(
         `${url}&per_page=10&_embed`,
         {
           headers: {
@@ -20,12 +19,9 @@ async function getData(query) {
           next: {revalidate:180},
         }
       );
-      if (!response.ok) {
-        throw new Error(`Failed to fetch data. Status: ${response.status}`);
-      }
-      const initialData = await response.json();
+      
       return {
-        data: initialData && initialData.length > 0 ? initialData : null,
+        data: response && response.length > 0 ? response : null,
         url: url
       };     }
   } catch (err) {
@@ -71,7 +67,7 @@ const searchquery = async ({ params }) => {
   if (!data) {
     return notFound();
   }
-  return <>{data && data.length && <ListingPage newdata={data} apiUrl={url}/>}</>;
+  return <>{data && data.length && <ListingPage newData={data} apiUrl={url}/>}</>;
 };
 
 export default searchquery;
