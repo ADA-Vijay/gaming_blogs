@@ -5,11 +5,11 @@ import { useState } from "react";
 import Link from "next/link";
 function sideBar({ data }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [openCategoryId, setOpenCategoryId] = useState(null);
 
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen);
+  const toggleAccordion = (categoryId) => {
+    setOpenCategoryId((prevId) => (prevId === categoryId ? null : categoryId));
   };
-
   const handleToggle = () => {
     document.getElementById("sidebar").classList.toggle(styles.open);
   };
@@ -58,13 +58,13 @@ function sideBar({ data }) {
                 data.map((e) => (
                   <li className={styles["data-content-li"]} key={e.id}>
                     <div
-                      onClick={toggleAccordion}
+                      onClick={() => toggleAccordion(e.id)}
                       className={styles.acordianDiv}
                     >
                       <Link href={`/${e.slug}`}>{e.name}</Link>
                       <div
                         className={`${styles.acordianIcon} ${
-                          isOpen ? styles.rotate : styles.rotateNormal
+                          e.id == openCategoryId  ? styles.rotate : styles.rotateNormal
                         }`}
                       >
                         <i className="fa-solid plus fa-plus"></i>
@@ -72,7 +72,7 @@ function sideBar({ data }) {
                     </div>
                     <div
                       className={`${styles.liData} ${
-                        isOpen ? styles.open : ""
+                        e.id == openCategoryId ? styles.open : ""
                       }`}
                     >
                       {/* <ul>

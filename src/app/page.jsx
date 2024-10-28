@@ -1,6 +1,5 @@
 import HeroBanner from "@/components/heroBanner/heroBanner";
 import styles from "@/app/page.module.css";
-import ListingPage from "@/components/listing/listing";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
