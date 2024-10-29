@@ -13,7 +13,6 @@ const getLatestPosts = async () => {
 };
 const LatestPosts = async () => {
   const data = await getLatestPosts();
-  console.log("latest posts",data)
   return (
     <div className={styles.heroCardWrap}>
       <div className={styles.container}>

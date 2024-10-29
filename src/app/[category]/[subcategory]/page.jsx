@@ -12,6 +12,7 @@ async function getData(subcategory) {
     });
 
     if (data && data.length > 0) {
+      console.log("data in subcategory",data)
       const postTags = data[0].tags;
       if (postTags && postTags.length > 0) {
         const tagIds = postTags.join(",");

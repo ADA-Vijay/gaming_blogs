@@ -8,7 +8,8 @@ const nextConfig = {
       "ashgamewitted.wpcomstaging.com",
       "https://i0.wp.com/ashgamewitted.wpcomstaging.com/wp-content/uploads/2024/05/",
       "gamingblogs.local",
-      "gameblogs.us23.cdn-alpha.com"
+      "gameblogs.us23.cdn-alpha.com",
+      "darkgreen-pigeon-940641.hostingersite.com"
     ],
   },
   eslint: {
