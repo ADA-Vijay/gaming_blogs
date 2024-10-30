@@ -815,9 +815,9 @@
 }
 
 @media screen and (max-width: 768px) {
-  .heroCardMobile {
+  /* .heroCardMobile {
     display: none;
-  }
+  } */
 
   .heroCardMobile:first-child {
     display: block !important;
@@ -845,4 +845,34 @@
 
 .authorDescription {
   margin-top: 2rem;
+}
+.herocardimg1 {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .herocardimg1{
+    min-width: 14rem;
+    height: 14rem;
+    display: block !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .heroCardBody {
+    grid-template-columns: 100% !important;
+  }
+  .heroCardBox2 {
+    height: 30rem;
+  }
+  .heroCardBoxItem {
+    background-image: none !important;
+    height: auto !important;
+    align-items: center !important;
+    gap: 1rem;
+    box-shadow: none !important;
+    border: none;
+  }
+  
 }

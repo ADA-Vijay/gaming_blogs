@@ -147,34 +147,24 @@ function Footer() {
                 </div>
               </li>
               <li>
-                <div className={styles["footer-ul1"]}>
+                <div
+                  className={styles["footer-ul1"]}
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
                   <ul>
                     <li>
-                      <Link href="/join-our-team" className={styles.link}>
-                        {" "}
-                        Join Our Team
-                      </Link>
-                    </li>
-
-                    <li className={styles["li-line"]}>
                       <Link href="/about-us" className={styles.link}>
                         About Us{" "}
                       </Link>
                     </li>
 
-                    <li>
+                    <li className={styles["li-line"]}>
                       {" "}
                       <Link
                         href="mailto:Officialgamewitted@gmail.com"
                         className={styles.link}
                       >
                         Contact Us
-                      </Link>
-                    </li>
-
-                    <li className={styles["li-line"]}>
-                      <Link href="/partnership" className={styles.link}>
-                        Partnership{" "}
                       </Link>
                     </li>
 
@@ -190,11 +180,21 @@ function Footer() {
                 <ul className={styles["footer-ul2"]}>
                   <li className={styles["bold-li"]}>Follow Us</li>
                   <li className={styles.liIcon}>
-                    <i className="fa-brands fa-youtube"></i>
+                    <Link
+                      href="https://www.youtube.com/@GameTechAnime "
+                      className={styles.link}
+                    >
+                      <i className="fa-brands fa-youtube"></i>
+                    </Link>
                   </li>
 
                   <li className={styles.liIcon}>
-                    <i className="fa-brands fa-x-twitter"></i>
+                    <Link
+                      href="https://x.com/GameTechAnime"
+                      className={styles.link}
+                    >
+                      <i className="fa-brands fa-x-twitter"></i>
+                    </Link>
                   </li>
                 </ul>
               </li>

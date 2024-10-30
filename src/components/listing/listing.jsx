@@ -96,7 +96,7 @@ const Listing = ({ newData, url }) => {
                     />
                     <div className={styles.latestInfo}>
                       <Link href={`/${card._embedded["wp:term"]?.[0]?.[0]?.slug}`}>
-                        <h6>{card._embedded["wp:term"]?.[0]?.[0]?.name}</h6>
+                        <h1>{card._embedded["wp:term"]?.[0]?.[0]?.name}</h1>
                       </Link>
                       <Link
                         href={`/${card._embedded["wp:term"]?.[0]?.[0]?.slug}/${card.slug}`}

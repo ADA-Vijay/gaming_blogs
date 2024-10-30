@@ -65,6 +65,11 @@ const LatestPosts = async () => {
                           background: `url(${card._embedded["wp:featuredmedia"][0].source_url})`,
                         }}
                       >
+                        <div style={{
+                          background: `url(${card._embedded["wp:featuredmedia"][0].source_url})`,
+                        }} className={styles.herocardimg1}> 
+                          
+                        </div>
                         <div className={styles.heroCardBoxItemInfo}>
                           <h6 className={styles.heroCardBoxItemBags}>
                             {card._embedded["wp:term"][0][0].name}

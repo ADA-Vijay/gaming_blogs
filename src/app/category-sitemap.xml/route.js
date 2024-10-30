@@ -13,7 +13,7 @@
 //   try {
 //     const paths = [];
 //     const posts = await fetchAllPosts(
-//       "https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/categories"
+//       "https://darkgreen-pigeon-940641.hostingersite.com/wp-json/wp/v2/categories"
 //     );
 
 //     posts.forEach((post) => {
@@ -23,7 +23,7 @@
 //     return paths.map(item => {
 //       return `
 //     <url>
-//       <loc>https://www.gamewitted.com${item}</loc>
+//       <loc>https://www.GameTech.com${item}</loc>
 //       <lastmod>${new Date().toISOString()}</lastmod>
 //     </url>
 //     `;

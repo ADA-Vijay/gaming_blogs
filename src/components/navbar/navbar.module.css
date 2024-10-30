@@ -11,6 +11,8 @@
 @media screen and (max-width : 768px) {
   .logoNone {
     display: block !important;
+    background-color: transparent !important;
+    padding: 0 45px;
   }
   .logo {
     display: none !important;
