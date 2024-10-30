@@ -60,7 +60,7 @@ const RichResultsScript = () => (
         "@context": "https://schema.org",
         "@type": "WebSite",
         name: "GameTech",
-        url: "https://gamewitted.com/",
+        url: "https://gametechanime.com/",
         description:
           "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
         publisher: {
@@ -73,7 +73,7 @@ const RichResultsScript = () => (
         },
         potentialAction: {
           "@type": "SearchAction",
-          target: "https://gamewitted.com/search?q={search_term_string}",
+          target: "https://gametechanime.com/search?q={search_term_string}",
           "query-input": "required name=search_term_string",
         },
         inLanguage: "en-US",
@@ -85,7 +85,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta property="og:site_name" content="GameWitted" />
+        <meta property="og:site_name" content="GameTech" />
         <meta
           property="og:description"
           content="Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments."
@@ -96,14 +96,16 @@ export default function RootLayout({ children }) {
         />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet" />
-
         <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/favicon/apple-touch-icon.png"
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap"
+          rel="stylesheet"
+        />
+
         <link
           rel="icon"
           type="image/png"
@@ -128,6 +130,21 @@ export default function RootLayout({ children }) {
           sizes="16x16"
           href="/favicon/favicon-16x16.png"
         />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-96x96.png"
+          sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+
         <link rel="manifest" href="/favicon/manifest.webmanifest" />
         <link rel="manifest" href="/favicon/browserconfig.xml" />
 
@@ -139,7 +156,12 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossOrigin="anonymous" referrerPolicy="no-referrer" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
       </head>
 
       <body className={inter.className}>
@@ -149,7 +171,6 @@ export default function RootLayout({ children }) {
           <Footer />
           <GoogleAnalyticsScript />
         </div>
-
       </body>
     </html>
   );
