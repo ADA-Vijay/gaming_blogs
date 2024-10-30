@@ -4,7 +4,7 @@ export async function generateMetadata() {
   return {
     title: "about us",
     description:
-      "GameWitted.com is your destination for the latest gaming content,esports coverage, and in-depth anime analysis. Founded in 2024, we'rean independent digital publisher committed to delivering high-quality,insightful content to our ever-growing community of passionate gamers and anime enthusiasts.",
+      "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
     openGraph: {
       images: [
         {

@@ -62,7 +62,7 @@ const RichResultsScript = () => (
         name: "GameTech",
         url: "https://gamewitted.com/",
         description:
-          "Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!",
+          "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
         publisher: {
           "@type": "Organization",
           name: "GameTech",
@@ -88,7 +88,7 @@ export default function RootLayout({ children }) {
         <meta property="og:site_name" content="GameWitted" />
         <meta
           property="og:description"
-          content="Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!"
+          content="Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments."
         />
         <meta
           name="google-site-verification"
