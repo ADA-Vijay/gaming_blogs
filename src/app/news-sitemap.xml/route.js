@@ -19,7 +19,7 @@
 //     const formattedYesterday =
 //       yesterday.toISOString().split("T")[0] + "T00:00:00";
 //     const response = await fetch(
-//       `https://ashgamewitted.wpcomstaging.com/wp-json/wp/v2/posts?_embed&orderby=date&per_page=${itemsPerPage}&order=desc&&after=${formattedYesterday}`,
+//       `https://darkgreen-pigeon-940641.hostingersite.com/wp-json/wp/v2/posts?_embed&orderby=date&per_page=${itemsPerPage}&order=desc&&after=${formattedYesterday}`,
 //       {
 //         next: { revalidate: 10 },
 //       }
