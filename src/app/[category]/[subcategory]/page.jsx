@@ -54,7 +54,7 @@ const getPostByCategory = async (params) => {
 
 export async function generateMetadata({ params }) {
   const data = await getData(params.subcategory);
-  if (data && data.length > 0) {
+  if (data ) {
     return {
       title: data.post.yoast_head_json.title,
       description: data.post.yoast_head_json.description,
