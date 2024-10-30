@@ -35,22 +35,22 @@ export const metadata = {
     },
   },
 };
-const GoogleAnalyticsScript = () => (
-  <>
-    <Script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-BD61L86XQG"
-    />
-    <Script>
-      {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-BD61L86XQG');
-      `}
-    </Script>
-  </>
-);
+// const GoogleAnalyticsScript = () => (
+//   <>
+//     <Script
+//       async
+//       src="https://www.googletagmanager.com/gtag/js?id=G-BD61L86XQG"
+//     />
+//     <Script>
+//       {`
+//         window.dataLayer = window.dataLayer || [];
+//         function gtag(){dataLayer.push(arguments);}
+//         gtag('js', new Date());
+//         gtag('config', 'G-BD61L86XQG');
+//       `}
+//     </Script>
+//   </>
+// );
 
 const RichResultsScript = () => (
   <script
@@ -112,24 +112,24 @@ export default function RootLayout({ children }) {
           sizes="32x32"
           href="/favicon/favicon-32x32.png"
         />
-        <link
+        {/* <link
           rel="icon"
           type="image/png"
           sizes="194x194"
           href="/favicon/favicon-194x194.png"
-        />
+        /> */}
         <link
           rel="icon"
           type="image/png"
           sizes="192x192"
           href="/favicon/android-chrome-192x192.png"
         />
-        <link
+        {/* <link
           rel="icon"
           type="image/png"
           sizes="16x16"
           href="/favicon/favicon-16x16.png"
-        />
+        /> */}
         <link
           rel="icon"
           type="image/png"
@@ -138,11 +138,11 @@ export default function RootLayout({ children }) {
         />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />
-        <link
+        {/* <link
           rel="apple-touch-icon"
           sizes="180x180"
           href="/apple-touch-icon.png"
-        />
+        /> */}
         <link rel="manifest" href="/site.webmanifest" />
 
         <link rel="manifest" href="/favicon/manifest.webmanifest" />
@@ -169,7 +169,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           {children}
           <Footer />
-          <GoogleAnalyticsScript />
+          {/* <GoogleAnalyticsScript /> */}
         </div>
       </body>
     </html>
