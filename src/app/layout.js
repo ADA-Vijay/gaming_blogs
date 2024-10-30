@@ -7,9 +7,9 @@ import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "GameWitted",
+  title: "GameTech",
   description:
-    "Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!",
+    "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments",
   openGraph: {
     images: [
       {
@@ -26,7 +26,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "GameWitted",
+    title: "GameTech",
     description:
       "Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!",
     images: {
@@ -50,6 +50,36 @@ const GoogleAnalyticsScript = () => (
       `}
     </Script>
   </>
+);
+
+const RichResultsScript = () => (
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "GameTech",
+        url: "https://gamewitted.com/",
+        description:
+          "Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!",
+        publisher: {
+          "@type": "Organization",
+          name: "GameTech",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://fama.b-cdn.net/gw/gwlogo.png",
+          },
+        },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: "https://gamewitted.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string",
+        },
+        inLanguage: "en-US",
+      }),
+    }}
+  />
 );
 export default function RootLayout({ children }) {
   return (

@@ -12,7 +12,6 @@ async function getData(subcategory) {
     });
 
     if (data && data.length > 0) {
-      console.log("data in subcategory",data)
       const postTags = data[0].tags;
       if (postTags && postTags.length > 0) {
         const tagIds = postTags.join(",");
@@ -57,12 +56,12 @@ export async function generateMetadata({ params }) {
   const data = await getData(params.subcategory);
   if (data && data.length > 0) {
     return {
-      title: data[0].yoast_head_json.title,
-      description: data[0].yoast_head_json.description,
+      title: data.post.yoast_head_json.title,
+      description: data.post.yoast_head_json.description,
       openGraph: {
         images: [
           {
-            url: data[0].yoast_head_json.og_image[0].url,
+            url: data.post.yoast_head_json.og_image[0].url,
             height: 1200,
             width: 600,
             alt: "Alt",
@@ -71,20 +70,38 @@ export async function generateMetadata({ params }) {
       },
       twitter: {
         card: "summary_large_image",
-        title: data[0].yoast_head_json.title,
-        description: data[0].yoast_head_json.description,
-        creator: data[0]._embedded.author[0].name,
+        title: data.post.yoast_head_json.title,
+        description: data.post.yoast_head_json.description,
+        creator: data.post._embedded.author[0].name,
         images: {
-          url: data[0].yoast_head_json.og_image[0].url,
+          url: data.post.yoast_head_json.og_image[0].url,
           width: "1200",
           height: "600",
-          alt: data[0].yoast_head_json.title,
-          site: "GameWitted",
+          alt: data.post.yoast_head_json.title,
+          site: "GameTech",
         },
       },
     };
   }
 }
+
+
+const RichResultsScript = ({ structuredData, breadcrumb }) => (
+  <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(structuredData),
+      }}
+    />
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: breadcrumb,
+      }}
+    />
+  </>
+);
 const page = async ({ params }) => {
   const category = params.category;
   const subcategory = params.subcategory;
@@ -121,8 +138,70 @@ const page = async ({ params }) => {
       scrollToSection(hash);
     }, 0);
   }
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "@id": `https://www.gamewitted.com/${params.category}/${params.subcategory}`,  // unique ID for the article
+    headline: data.post.yoast_head_json.title,
+    image: data.post.yoast_head_json.og_image[0].url,
+    thumbnailUrl: data.post.yoast_head_json.og_image[0].url, // Setting the thumbnail URL to the main image URL (or another image if preferred)
+    datePublished: `${data.date}Z`,
+    dateModified: `${data.post.modified}Z`,
+    isAccessibleForFree: "True",
+    articleBody: data.post.content.rendered.replace(/<[^>]*>?/gm, ''), // Stripping HTML tags
+    author: {
+      "@type": "Person",
+      name: data.post._embedded.author[0].name,
+      url: `https://www.gamewitted.com/author/${data.post._embedded.author[0].name.replace(" ", "-")}`
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "GameWitted",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://fama.b-cdn.net/gw/gwlogo.png",
+      },
+    },
+    isPartOf: {
+      "@type": "WebPage",
+      "@id": `https://www.gamewitted.com/${params.category}`,
+      url: `https://www.gamewitted.com/${params.category}`,
+      name: params.category,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.gamewitted.com/${params.category}/${params.subcategory}`,
+    },
+    description: data.post.yoast_head_json.description,
+    inLanguage: "en-US",
+  };
+  
+
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: params.category,
+        item: `https://www.gamewitted.com/${params.category}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: params.subcategory,
+        item: `https://www.gamewitted.com/${params.category}/${params.subcategory}`,
+      },
+    ],
+  };
   return (
     <>
+    <RichResultsScript
+        structuredData={structuredData}
+        breadcrumb={JSON.stringify(breadcrumbStructuredData)}
+      />
       {post && (
         <>
           <div className={styles.latestWrap}>
