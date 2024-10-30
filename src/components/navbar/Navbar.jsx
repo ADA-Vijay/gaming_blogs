@@ -68,14 +68,10 @@ const Navbar = async () => {
         <div className={styles.navBody}>
           <SideBar data={data}></SideBar>
           <Link href="/" className={styles.logoNone}>
-            <img
-              className={styles.DesktopLogo}
-              src="https://fama.b-cdn.net/gw/gwlogo.png"
-              alt="logo"
-            />
+          
             <img
               className={styles.mobLogo}
-              src="/gwlogo (1).png"
+              src="https://fama.b-cdn.net/GameTech/gtlogo.png"
               alt="logo"
               style={{ width: "100%" }}
             />
@@ -110,12 +106,7 @@ const Navbar = async () => {
             <Link href="/" className={styles.logo}>
               <img
                 className={styles.DesktopLogo}
-                src="https://fama.b-cdn.net/gw/gwlogo.png"
-                alt="logo"
-              />
-              <img
-                className={styles.mobLogo}
-                src="https://fama.b-cdn.net/gw/Gamewitted.png"
+                src="https://fama.b-cdn.net/GameTech/gtlogo.png"
                 alt="logo"
               />
             </Link>
