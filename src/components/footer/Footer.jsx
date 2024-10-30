@@ -147,15 +147,18 @@ function Footer() {
                 </div>
               </li>
               <li>
-                <div className={styles["footer-ul1"]}>
+                <div
+                  className={styles["footer-ul1"]}
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
                   <ul>
-                    <li className={styles["li-line"]}>
+                    <li>
                       <Link href="/about-us" className={styles.link}>
                         About Us{" "}
                       </Link>
                     </li>
 
-                    <li>
+                    <li className={styles["li-line"]}>
                       {" "}
                       <Link
                         href="mailto:Officialgamewitted@gmail.com"
@@ -186,13 +189,12 @@ function Footer() {
                   </li>
 
                   <li className={styles.liIcon}>
-                  <Link
+                    <Link
                       href="https://x.com/GameTechAnime"
                       className={styles.link}
                     >
                       <i className="fa-brands fa-x-twitter"></i>
                     </Link>
-                    
                   </li>
                 </ul>
               </li>
