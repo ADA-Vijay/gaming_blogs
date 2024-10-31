@@ -819,9 +819,13 @@ table img {
   padding-top: 3.1rem !important;
 }
 .page_latestBox__nxGJQ a {
-  color: #0065fd !important;
+  color:#ff8100  !important;
   text-decoration: unset;
 }
 .wp-block-heading{
+  font-family: "Marcellus", serif !important;
+}
+.h1fonts{
+  font-size: 1.4rem;
   font-family: "Marcellus", serif !important;
 }
