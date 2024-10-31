@@ -822,3 +822,6 @@ table img {
   color: #0065fd !important;
   text-decoration: unset;
 }
+.wp-block-heading{
+  font-family: "Marcellus", serif !important;
+}
