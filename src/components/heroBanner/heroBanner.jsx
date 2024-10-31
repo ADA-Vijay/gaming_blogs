@@ -8,8 +8,8 @@ const HeroBanner = async (data) => {
     <div className={styles.heroCardWrap}>
       <div className={styles.container}>
         {data && data.data.map((e, categoryIndex) => (
-          <div key={categoryIndex}>
-            <Link href={`/${e.slug}`} className={styles.promoTitle}>{ e.name}</Link>
+          <div key={categoryIndex} className="bannerTitle">
+            <Link href={`/${e.slug}`} className={`${styles.promoTitle} `}>{ e.name}</Link>
             <div className={styles.heroCardBody}>
               {e.posts && e.posts.length > 0 && (
                 <div className={styles.heroCardBox2}>

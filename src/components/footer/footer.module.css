@@ -17,10 +17,12 @@
 }
 .footerLogoImg {
   margin-bottom: 1rem;
+  text-align: center;
 }
 .footerLogoImg img {
-  width: 285px;
+  width: 85px;
   height: 100%;
+  text-align: center;
 }
 .footerContent p {
   color: #b6b5b5;

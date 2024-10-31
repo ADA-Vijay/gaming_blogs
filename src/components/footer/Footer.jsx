@@ -143,7 +143,7 @@ function Footer() {
             <ul className={styles["item-ul-wrap"]}>
               <li>
                 <div className={styles.footerLogoImg}>
-                  <img src="https://fama.b-cdn.net/gw/gwlogo.png" alt="logo" />
+                  <img src="https://fama.b-cdn.net/GameTech/gtlogo.png" alt="logo" />
                 </div>
               </li>
               <li>
@@ -161,7 +161,7 @@ function Footer() {
                     <li className={styles["li-line"]}>
                       {" "}
                       <Link
-                        href="mailto:Officialgamewitted@gmail.com"
+                        href="/contact-us"
                         className={styles.link}
                       >
                         Contact Us

@@ -9,7 +9,7 @@ async function getData(subcategory) {
   try {
     const data = await fetchFromAPI(`posts?slug=${subcategory}&_embed`, {
       next: { revalidate: 180 },
-    });
+    }); 
 
     if (data && data.length > 0) {
       const postTags = data[0].tags;
