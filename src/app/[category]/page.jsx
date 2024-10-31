@@ -42,7 +42,7 @@ export async function generateMetadata({ params }) {
     return {
       title: category,
       description:
-        "Welcome to Gamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
+        "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
       openGraph: {
         images: [
           {
@@ -61,7 +61,7 @@ export async function generateMetadata({ params }) {
         card: "summary_large_image",
         title: category,
         description:
-          "Welcome to Gamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms",
+          "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
         images: ["https://fama.b-cdn.net/gw/gamewittedlogo.jpg"],
       },
     };

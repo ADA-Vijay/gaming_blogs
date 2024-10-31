@@ -7,7 +7,7 @@ import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "GameTech",
+  title: "GameTechAnime",
   description:
     "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments",
   openGraph: {
@@ -26,12 +26,12 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "GameTech",
+    title: "GameTechAnime",
     description:
-      "Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!",
+      "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
     images: {
       url: "https://fama.b-cdn.net/gw/gamewittedlogo.jpg",
-      alt: "GameWitted ",
+      alt: "GameTechAnime",
     },
   },
 };
