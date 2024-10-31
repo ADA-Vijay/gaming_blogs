@@ -34,8 +34,8 @@ export async function generateMetadata({ params }) {
   const {data,url} = await getData(params.query);
   if (data && data.length > 0) {
     return {
-      title: "GameWitted",
-      description: "Welcome to Gamewitted, your ultimate destination for immersive gaming and captivating anime content! Dive into a world where pixels meet passion, as we bring you the latest updates, reviews, and insights from the gaming and anime realms.",
+      title: "GameTech",
+      description: "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
       images: [
         {
           url: "https://fama.b-cdn.net/gw/gamewittedlogo.jpg",

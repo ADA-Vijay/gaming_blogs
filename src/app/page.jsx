@@ -38,9 +38,9 @@ async function getcategoryData() {
 
 export async function generateMetadata() {
   return {
-    title: "gamersview",
+    title: "GameTech",
     description:
-      "Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!",
+      "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
     images: [
       {
         url: "https://fama.b-cdn.net/gw/gwlogo.png",

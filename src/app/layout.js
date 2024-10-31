@@ -7,7 +7,7 @@ import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "GameTech",
+  title: "GameTechAnime",
   description:
     "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments",
   openGraph: {
@@ -26,31 +26,31 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "GameTech",
+    title: "GameTechAnime",
     description:
-      "Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!",
+      "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
     images: {
       url: "https://fama.b-cdn.net/gw/gamewittedlogo.jpg",
-      alt: "GameWitted ",
+      alt: "GameTechAnime",
     },
   },
 };
-const GoogleAnalyticsScript = () => (
-  <>
-    <Script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-BD61L86XQG"
-    />
-    <Script>
-      {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-BD61L86XQG');
-      `}
-    </Script>
-  </>
-);
+// const GoogleAnalyticsScript = () => (
+//   <>
+//     <Script
+//       async
+//       src="https://www.googletagmanager.com/gtag/js?id=G-BD61L86XQG"
+//     />
+//     <Script>
+//       {`
+//         window.dataLayer = window.dataLayer || [];
+//         function gtag(){dataLayer.push(arguments);}
+//         gtag('js', new Date());
+//         gtag('config', 'G-BD61L86XQG');
+//       `}
+//     </Script>
+//   </>
+// );
 
 const RichResultsScript = () => (
   <script
@@ -60,9 +60,9 @@ const RichResultsScript = () => (
         "@context": "https://schema.org",
         "@type": "WebSite",
         name: "GameTech",
-        url: "https://gamewitted.com/",
+        url: "https://gametechanime.com/",
         description:
-          "Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!",
+          "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
         publisher: {
           "@type": "Organization",
           name: "GameTech",
@@ -73,7 +73,7 @@ const RichResultsScript = () => (
         },
         potentialAction: {
           "@type": "SearchAction",
-          target: "https://gamewitted.com/search?q={search_term_string}",
+          target: "https://gametechanime.com/search?q={search_term_string}",
           "query-input": "required name=search_term_string",
         },
         inLanguage: "en-US",
@@ -85,10 +85,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta property="og:site_name" content="GameWitted" />
+        <meta property="og:site_name" content="GameTech" />
         <meta
           property="og:description"
-          content="Welcome to Gamewitted! Dive into immersive gaming and anime content with the latest updates, reviews, and insights. Where pixels meet passion!"
+          content="Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments."
         />
         <meta
           name="google-site-verification"
@@ -96,38 +96,55 @@ export default function RootLayout({ children }) {
         />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet" />
-
         <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/favicon/apple-touch-icon.png"
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap"
+          rel="stylesheet"
+        />
+
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
           href="/favicon/favicon-32x32.png"
         />
-        <link
+        {/* <link
           rel="icon"
           type="image/png"
           sizes="194x194"
           href="/favicon/favicon-194x194.png"
-        />
+        /> */}
         <link
           rel="icon"
           type="image/png"
           sizes="192x192"
           href="/favicon/android-chrome-192x192.png"
         />
-        <link
+        {/* <link
           rel="icon"
           type="image/png"
           sizes="16x16"
           href="/favicon/favicon-16x16.png"
+        /> */}
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-96x96.png"
+          sizes="96x96"
         />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        {/* <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        /> */}
+        <link rel="manifest" href="/site.webmanifest" />
+
         <link rel="manifest" href="/favicon/manifest.webmanifest" />
         <link rel="manifest" href="/favicon/browserconfig.xml" />
 
@@ -139,7 +156,12 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossOrigin="anonymous" referrerPolicy="no-referrer" />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
       </head>
 
       <body className={inter.className}>
@@ -147,9 +169,8 @@ export default function RootLayout({ children }) {
           <Navbar />
           {children}
           <Footer />
-          <GoogleAnalyticsScript />
+          {/* <GoogleAnalyticsScript /> */}
         </div>
-
       </body>
     </html>
   );

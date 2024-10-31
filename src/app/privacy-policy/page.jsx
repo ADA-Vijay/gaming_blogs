@@ -4,7 +4,7 @@ export async function generateMetadata() {
   return {
     title: "Privaacy and Policy",
     description:
-      "At GameWitted, we value the privacy of our readers and are committed to protecting your personal information. This privacy policy outlines how we collect, use, and safeguard the data you provide when visiting our website.",
+      "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
     openGraph: {
       images: [
         {
