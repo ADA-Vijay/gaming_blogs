@@ -34,7 +34,7 @@ export async function generateMetadata({ params }) {
   const {data,url} = await getData(params.query);
   if (data && data.length > 0) {
     return {
-      title: "GameTech",
+      title: "GameTechAnime",
       description: "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
       images: [
         {

@@ -38,7 +38,7 @@ async function getcategoryData() {
 
 export async function generateMetadata() {
   return {
-    title: "GameTech",
+    title: "GameTechAnime",
     description:
       "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
     images: [

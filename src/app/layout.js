@@ -59,13 +59,13 @@ const RichResultsScript = () => (
       __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "WebSite",
-        name: "GameTech",
+        name: "GameTechAnime",
         url: "https://gametechanime.com/",
         description:
           "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
         publisher: {
           "@type": "Organization",
-          name: "GameTech",
+          name: "GameTechAnime",
           logo: {
             "@type": "ImageObject",
             url: "https://fama.b-cdn.net/gw/gwlogo.png",

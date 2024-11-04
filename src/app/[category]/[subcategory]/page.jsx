@@ -78,7 +78,7 @@ export async function generateMetadata({ params }) {
           width: "1200",
           height: "600",
           alt: data.post.yoast_head_json.title,
-          site: "GameTech",
+          site: "GameTechAnime",
         },
       },
     };
@@ -153,11 +153,11 @@ const page = async ({ params }) => {
     author: {
       "@type": "Person",
       name: data.post._embedded.author[0].name,
-      url: `https://www.GameTech.com/author/${data.post._embedded.author[0].name.replace(" ", "-")}`
+      url: `https://www.GameTechAnime.com/author/${data.post._embedded.author[0].name.replace(" ", "-")}`
     },
     publisher: {
       "@type": "Organization",
-      name: "GameTech",
+      name: "GameTechAnime",
       logo: {
         "@type": "ImageObject",
         url: "https://fama.b-cdn.net/gw/gwlogo.png",
@@ -165,13 +165,13 @@ const page = async ({ params }) => {
     },
     isPartOf: {
       "@type": "WebPage",
-      "@id": `https://www.GameTech.com/${params.category}`,
-      url: `https://www.GameTech.com/${params.category}`,
+      "@id": `https://www.GameTechAnime.com/${params.category}`,
+      url: `https://www.GameTechAnime.com/${params.category}`,
       name: params.category,
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://www.GameTech.com/${params.category}/${params.subcategory}`,
+      "@id": `https://www.GameTechAnime.com/${params.category}/${params.subcategory}`,
     },
     description: data.post.yoast_head_json.description,
     inLanguage: "en-US",
