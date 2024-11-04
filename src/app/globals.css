@@ -765,7 +765,7 @@ table img {
 .page_heroCardBoxItemBags__amTjA::before {
   display: block;
   content: "";
-  background-color: #ff8100;
+  background-color: #ff8100 !important;
   width: 1rem;
   height: 1rem;
   border-radius: 1px;
@@ -817,4 +817,15 @@ table img {
 }
 .bannerTitle{
   padding-top: 3.1rem !important;
+}
+.page_latestBox__nxGJQ a {
+  color:#ff8100  !important;
+  text-decoration: unset;
+}
+.wp-block-heading{
+  font-family: "Marcellus", serif !important;
+}
+.h1fonts{
+  font-size: 1.4rem;
+  font-family: "Marcellus", serif !important;
 }
