@@ -8,7 +8,7 @@
 .logoNone {
   display: none;
 }
-@media screen and (max-width : 768px) {
+@media screen and (max-width: 768px) {
   .logoNone {
     display: block !important;
     background-color: transparent !important;
@@ -17,7 +17,6 @@
   .logo {
     display: none !important;
   }
-
 }
 
 .logo img {
@@ -25,7 +24,7 @@
   height: 100%;
   object-fit: cover;
 }
-  
+
 .navLinks {
   display: flex;
   align-items: center;
@@ -127,7 +126,6 @@
 
 .searchInput {
   display: none;
-
 }
 
 .searchInput input {
@@ -147,7 +145,7 @@
   background-clip: padding-box;
   border: var(--bs-border-width) solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
-  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   padding-left: 3.2rem;
 }
 
@@ -191,11 +189,9 @@
   margin-right: 15px;
 }
 
-
 .navLink {
   text-decoration: none !important;
 }
-
 
 .mobSearchLink {
   display: none;
@@ -216,7 +212,7 @@
 
   .mobLogo {
     display: block;
-height: 8rem;
+    height: 5rem;
   }
 
   .logo img {
@@ -224,17 +220,14 @@ height: 8rem;
     height: 85px;
   }
 
-
   .mobSearchWrap {
     display: block;
   }
 
   .mobSearchContent {
     position: relative !important;
-    background:none !important;
+    background: none !important;
   }
-
-  
 
   .mobSearchLink {
     display: none;
@@ -282,14 +275,12 @@ height: 8rem;
     top: 15px;
     left: 15px;
   }
-
 }
 
 .navItemList {
   height: 400px;
   overflow-y: auto;
 }
-
 
 .sidebar {
   background-color: #202020;
