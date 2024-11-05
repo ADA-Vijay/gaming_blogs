@@ -9,7 +9,7 @@
 }
 .spanAuthor {
   margin-bottom: 0 !important;
-  color: rgb(96, 96, 96) !important;
+  color: white !important;
   font-size: 1.2rem;
 }
 .authorImageDiv img {
@@ -29,6 +29,10 @@
 .authorDesc {
   margin-top: 4rem;
   padding-right: 10rem;
+  color: white !important;
+}
+.authorName{
+  color: white !important;
 }
 
 @media screen and (max-width : 768px) {
@@ -38,5 +42,6 @@
   }
   .authorDesc {
     padding-right: 0 !important;
+    color: white;
   }
 }

@@ -71,7 +71,7 @@ const Page = async ({ params }) => {
                 </div>
                 <div>
                   <p className={styles.spanAuthor}>ABOUT THE AUTHOR</p>
-                  <h1>{authorDetail.name}</h1>
+                  <h1 className={styles.authorName}>{authorDetail.name}</h1>
                   {twitterHandle && (
                     <Link href={twitterHandle}>
                       <i className="fa-brands fa-x-twitter"></i>
@@ -86,7 +86,7 @@ const Page = async ({ params }) => {
       ) : null}
 
       {posts.length > 0 ? (
-        <Listing newdata={posts} />
+        <Listing newData={posts} />
       ) : (
         authorDetail && <NotFound />
       )}
