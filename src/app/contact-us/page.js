@@ -78,7 +78,7 @@ const page = () => {
                 </ul>
             </div>
             <div className={styles.rules}>
-                <h1  className={styles["header-texts"]}>Response Time</h1>
+                <h2  className={styles["header-texts"]}>Response Time</h2>
                 <span className={styles.rulesList}>
                 We aim to respond to all emails within 48 hours during regular business days. For faster 
                 responses, please use the appropriate subject line format and be clear in your message.

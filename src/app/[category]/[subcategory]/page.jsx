@@ -254,7 +254,7 @@ const page = async ({ params }) => {
                                   ></RelatedPosts>
                                   {tags.length > 0 && (
                                     <>
-                                      <h1 className={styles.relatedTopic}>Related Topics</h1>
+                                      <h2 className={styles.relatedTopic}>Related Topics</h2>
                                       {tags.map((tag) => (
                                         <Link
                                           key={tag.id}

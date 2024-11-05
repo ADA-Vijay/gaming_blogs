@@ -118,7 +118,7 @@ const Listing = ({ newData, url }) => {
           </div>
           <div className={styles.latestContent2}>
             <div className={styles.latestContent2Wrap}>
-              <h1>Most Popular</h1>
+              <h2>Most Popular</h2>
               <div className={styles.latestContent2Data}>
                 {data && data.length > 0 ? (
                   data.map((card, index) => (
