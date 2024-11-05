@@ -210,9 +210,12 @@
     display: none;
   }
 
-  .mobLogo {
+  /* .mobLogo {
     display: block;
     height: 5rem;
+  } */
+  .mobLogo{
+    display: none;
   }
 
   .logo img {

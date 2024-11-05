@@ -196,6 +196,14 @@ function Footer() {
                       <i className="fa-brands fa-x-twitter"></i>
                     </Link>
                   </li>
+                  <li className={styles.liIcon}>
+                    <Link
+                      href="https://www.linkedin.com/company/gametechanime/"
+                      className={styles.link}
+                    >
+                      <i className="fa-brands fa-linkedin"></i>
+                    </Link>
+                  </li>
                 </ul>
               </li>
             </ul>

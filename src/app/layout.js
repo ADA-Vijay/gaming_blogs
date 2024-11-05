@@ -81,6 +81,24 @@ const RichResultsScript = () => (
     }}
   />
 );
+const GoogleTag = () => (
+  <>
+    <Script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Z0408C5S92"
+    />
+    <Script>
+      {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Z0408C5S92');
+      `}
+    </Script>
+  </>
+);
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -162,6 +180,7 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
+        <GoogleTag />
       </head>
 
       <body className={inter.className}>
