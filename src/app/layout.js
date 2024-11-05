@@ -103,14 +103,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta property="og:site_name" content="GameTech" />
+        <meta property="og:site_name" content="GameTechAnime" />
         <meta
           property="og:description"
           content="Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments."
         />
         <meta
           name="google-site-verification"
-          content="RdxkhXckn9g6Sc2nHYDSF5_Y2fQ3VwWBpEq4ZS_Z2bg"
+          content="HLfBbPEKrKWae2uncUl4GAGH4qUO3tu1rKxZ2w6ELgM"
         />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
