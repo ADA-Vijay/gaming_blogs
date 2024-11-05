@@ -180,7 +180,6 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
-        <GoogleTag />
       </head>
 
       <body className={inter.className}>
@@ -189,6 +188,8 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
           {/* <GoogleAnalyticsScript /> */}
+          <GoogleTag />
+
         </div>
       </body>
     </html>
