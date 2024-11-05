@@ -4,6 +4,7 @@ import style from "@/app/page.module.css";
 import Listing from "@/components/listing/listing";
 import NotFound from "@/app/not-found";
 import { fetchFromAPI } from "@/utils/fetchData";
+import Link from "next/link";
 async function getAllAuthors(authorName) {
   const defaultResponse = {
     posts: [],
@@ -15,7 +16,7 @@ async function getAllAuthors(authorName) {
   }
 
   try {
-    const users = await fetchFromAPI("users", {
+    const users = await fetchFromAPI("users?&_embed", {
       next: { revalidate: 180 },
     });
     const author = authorName.replace(/-/g, " ");
@@ -48,6 +49,13 @@ const Page = async ({ params }) => {
     return <NotFound message={`no author and posts found`} />;
   }
 
+  const personObject = authorDetail.yoast_head_json?.schema["@graph"].find(
+    (item) => item["@type"] === "Person"
+  );
+  const twitterHandle = personObject?.sameAs?.find((url) =>
+    url.includes("x.com")
+  );
+
   return (
     <div>
       {authorDetail ? (
@@ -64,6 +72,11 @@ const Page = async ({ params }) => {
                 <div>
                   <p className={styles.spanAuthor}>ABOUT THE AUTHOR</p>
                   <h1>{authorDetail.name}</h1>
+                  {twitterHandle && (
+                    <Link href={twitterHandle}>
+                      <i className="fa-brands fa-x-twitter"></i>
+                    </Link>
+                  )}
                 </div>
               </div>
               <p className={styles.authorDesc}>{authorDetail.description}</p>
