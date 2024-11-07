@@ -1,5 +1,23 @@
 import React from 'react'
 import styles from "@/app/privacy-policy/page.module.css";
+
+export async function generateMetadata() {
+    return {
+      title: "Contact Us",
+      description:
+      "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed.",
+      openGraph: {
+        images: [
+          {
+            url: "https://fama.b-cdn.net/GameTech/gtlogo.png",
+            height: 1200,
+            width: 600,
+            alt: "Alt",
+          },
+        ],
+      },
+    };
+  }
 const page = () => {
     return (
         <div className={styles.container}>

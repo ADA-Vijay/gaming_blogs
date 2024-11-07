@@ -9,11 +9,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "GameTechAnime",
   description:
-    "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments",
+    "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed.",
   openGraph: {
     images: [
       {
-        url: "https://fama.b-cdn.net/gw/gwlogo.png",
+        url: "https://fama.b-cdn.net/GameTech/gtlogo.png",
         height: 1200,
         width: 600,
         alt: "Alt",
@@ -28,9 +28,9 @@ export const metadata = {
     card: "summary_large_image",
     title: "GameTechAnime",
     description:
-      "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
+      "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed.",
     images: {
-      url: "https://fama.b-cdn.net/gw/gamewittedlogo.jpg",
+      url: "https://fama.b-cdn.net/GameTech/gtlogo.png",
       alt: "GameTechAnime",
     },
   },
@@ -62,13 +62,13 @@ const RichResultsScript = () => (
         name: "GameTechAnime",
         url: "https://gametechanime.com/",
         description:
-          "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
+          "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed.",
         publisher: {
           "@type": "Organization",
           name: "GameTechAnime",
           logo: {
             "@type": "ImageObject",
-            url: "https://fama.b-cdn.net/gw/gwlogo.png",
+            url: "https://fama.b-cdn.net/GameTech/gtlogo.png",
           },
         },
         potentialAction: {
@@ -106,7 +106,7 @@ export default function RootLayout({ children }) {
         <meta property="og:site_name" content="GameTechAnime" />
         <meta
           property="og:description"
-          content="Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments."
+          content="Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed."
         />
         <meta
           name="google-site-verification"

@@ -40,10 +40,10 @@ export async function generateMetadata() {
   return {
     title: "GameTechAnime",
     description:
-      "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
+      "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed.",
     images: [
       {
-        url: "https://fama.b-cdn.net/gw/gwlogo.png",
+        url: "https://fama.b-cdn.net/GameTech/gtlogo.png",
         height: 1200,
         width: 600,
         alt: "Alt",

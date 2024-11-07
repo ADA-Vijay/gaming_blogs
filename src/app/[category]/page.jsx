@@ -42,11 +42,11 @@ export async function generateMetadata({ params }) {
     return {
       title: category,
       description:
-        "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
+      "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed.",
       openGraph: {
         images: [
           {
-            url: "https://fama.b-cdn.net/gw/gamewittedlogo.jpg",
+            url: "https://fama.b-cdn.net/GameTech/gtlogo.png",
             height: 1200,
             width: 600,
             alt: "Alt",
@@ -61,8 +61,8 @@ export async function generateMetadata({ params }) {
         card: "summary_large_image",
         title: category,
         description:
-          "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed on the latest industry developments.",
-        images: ["https://fama.b-cdn.net/gw/gamewittedlogo.jpg"],
+        "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed.",
+        images: ["https://fama.b-cdn.net/GameTech/gtlogo.png"],
       },
     };
   }

@@ -5,10 +5,13 @@ import Listing from "@/components/listing/listing";
 import NotFound from "@/app/not-found";
 import { fetchFromAPI } from "@/utils/fetchData";
 import Link from "next/link";
+
+
+
 async function getAllAuthors(authorName) {
   const defaultResponse = {
     posts: [],
-    authorDetail: null,
+    authorDetail: null,  
   };
 
   if (!authorName) {
