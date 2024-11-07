@@ -112,6 +112,9 @@ export default function RootLayout({ children }) {
           name="google-site-verification"
           content="HLfBbPEKrKWae2uncUl4GAGH4qUO3tu1rKxZ2w6ELgM"
         />
+        <meta property="og:title" content="GameTechAnime" />
+        <meta property="og:url" content="https://gametechanime.com/" />
+        <meta property="og:type" content="website" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -189,7 +192,6 @@ export default function RootLayout({ children }) {
           <Footer />
           {/* <GoogleAnalyticsScript /> */}
           <GoogleTag />
-
         </div>
       </body>
     </html>
