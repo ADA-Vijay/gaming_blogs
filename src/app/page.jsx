@@ -67,7 +67,7 @@ const Home = async () => {
         <LatestPosts></LatestPosts>
         <div className={styles.promoWrap}>
           <div className={styles.container}>
-            <h1 className={styles.promoTitle}>Categories</h1>
+            <h2 className={styles.promoTitle}>Categories</h2>
             <div className={styles.promoBody}>
               <div className={styles.promoBox}>
                 {data && data.length > 0

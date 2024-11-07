@@ -31,7 +31,7 @@ const page = () => {
           </li>
         </ul>
 
-        <h1>Our Story</h1>
+        <h2>Our Story</h2>
         <ul>
           <li className={styles.story}>
             GameTechAnime started as a passion project in 2024 by a small group of friends who spent
@@ -46,7 +46,7 @@ const page = () => {
           </li>
         </ul>
 
-       <h1  className={styles["header-texts"]} > What We Cover</h1>
+       <h2  className={styles["header-texts"]} > What We Cover</h2>
      
         <ul style={{ marginTop: "15px" }}>
           <li className={styles.lists}>
@@ -64,7 +64,7 @@ const page = () => {
       
         </ul>
 
-        <h1 className={styles["header-texts"]} >Our Approach</h1>
+        <h2 className={styles["header-texts"]} >Our Approach</h2>
         <ul style={{ marginTop: "15px" }}>
           <li className={styles.list}>
             We keep things straightforward: accurate information, clear guides, and honest opinions.
