@@ -35,10 +35,12 @@ export default async function getURL() {
     //   });
     // });
     posts.forEach((post) => {
-            // paths.push(`/${post.slug}`);
+      // paths.push(`/${post.slug}`);
 
       // Get the date from post.yoast_head_json.article_published_time
-      const articlePublishedTime = new Date(post.yoast_head_json.article_published_time);
+      const articlePublishedTime = new Date(
+        post.yoast_head_json.article_published_time
+      );
       // Format the date in ISO string format
       const formattedDate = articlePublishedTime.toISOString();
       paths.push({
@@ -53,7 +55,7 @@ export default async function getURL() {
     return paths
       .map((item) => {
         return `<url>
-<loc>https://www.gametchanime.com${item.slug}</loc>
+<loc>https://www.gametechanime.com${item.slug}</loc>
 <news:news>
 <news:publication>
 <news:name>GameTechAnime</news:name>
