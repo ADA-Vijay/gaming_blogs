@@ -23,7 +23,7 @@ export default async function getURL() {
     return paths.map(item => {
       return `
     <url>
-      <loc>https://www.GameTech.com${item}</loc>
+      <loc>https://www.gametechanime.com${item}</loc>
       <lastmod>${new Date().toISOString()}</lastmod>
     </url>
     `;
