@@ -86,7 +86,7 @@ const Page = async ({ params }) => {
   return (
     <>
     {
-      <ListingPage newData={data} apiUrl={url} />
+      <ListingPage newData={data} url={url} />
     }
       
     </>

@@ -42,18 +42,20 @@ const Listing = ({ newData, url }) => {
     setLoading(true);
     try {
       if (hitApi && url) {
-        const response = await fetchFromAPI(`&per_page=10&page=${page + 1}&_embed`);
-        if (!response.ok) {
-          setHitApi(false);
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const newData = await response.json();
+        const response = await fetchFromAPI(url+`&per_page=10&page=${page + 1}&_embed`);
+        // if (!response.ok) {
+        //   setHitApi(false);
+        //   throw new Error(`HTTP error! Status: ${response.status}`);
+        // }
+                
+        const newData = await response;
         if (newData.length > 0) {
           setData((prevData) => [...prevData, ...newData]);
           setPage((prevPage) => prevPage + 1);
         } else {
           setHasMoreData(false);
         }
+
       }
     } catch (error) {
       setHitApi(false);
