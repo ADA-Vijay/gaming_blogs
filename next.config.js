@@ -20,7 +20,7 @@ const nextConfig = {
     return [
       {
         source: "/ads.txt",
-        destination: "https://config.playwire.com/dyn_ads/1025324/75084/ads.txt",
+        destination: "https://config.playwire.com/dyn_ads/1025447/75402/ads.txt",
         permanent: true,
       },
     ];
