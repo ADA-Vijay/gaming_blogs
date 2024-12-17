@@ -169,8 +169,7 @@ export default function RootLayout({ children }) {
           sizes="16x16"
           href="/favicon/favicon-16x16.png"
         /> */}
-        
- 
+
         {/* <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -194,6 +193,17 @@ export default function RootLayout({ children }) {
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "GameTechAnime",
+              url: "https://www.gametechanime.com",
+            }),
+          }}
         />
       </head>
 
