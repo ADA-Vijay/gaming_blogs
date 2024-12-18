@@ -11,6 +11,7 @@ const Ramp = () => {
            console.log('Missing Publisher Id and Website Id');
            return;
        }
+       
 
        if (!rampComponentLoaded) {
            setRampComponentLoaded(true);
