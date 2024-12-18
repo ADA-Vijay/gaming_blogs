@@ -136,9 +136,6 @@ export default function RootLayout({ children }) {
           sizes="32x32"
           href="/favicon/favicon-32x32.png"
         />
-
-        {/* gametchanime */}
-
         <link
           rel="icon"
           type="image/png"
@@ -153,34 +150,14 @@ export default function RootLayout({ children }) {
           href="/apple-touch-icon.png"
         />
         <link rel="manifest" href="/favicon/site.webmanifest" />
-        {/* gametchanime */}
-        {/* <link
-          rel="icon"
-          type="image/png"
-          sizes="194x194"
-          href="/favicon/favicon-194x194.png"
-        /> */}
+
         <link
           rel="icon"
           type="image/png"
           sizes="192x192"
           href="/favicon/android-chrome-192x192.png"
         />
-        {/* <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon/favicon-16x16.png"
-        /> */}
 
-        {/* <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        /> */}
-        {/* <link rel="manifest" href="/site.webmanifest" />
-
-        <link rel="manifest" href="/favicon/manifest.webmanifest" /> */}
         <link rel="manifest" href="/favicon/browserconfig.xml" />
 
         <link
@@ -204,7 +181,7 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "GameTechAnime",
-              url: "https://www.gametechanime.com",
+              url: "https://gametechanime.com",
             }),
           }}
         />
@@ -218,11 +195,9 @@ export default function RootLayout({ children }) {
           <div id="leftAds"></div>
           <div id="rightAds"></div>
           <Footer />
-          {/* <GoogleAnalyticsScript /> */}
           <GoogleTag />
         </div>
         <Ramp />
-
       </body>
     </html>
   );
