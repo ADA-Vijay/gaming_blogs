@@ -1,8 +1,8 @@
 "use client"
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation'; // Use this instead of useRouter
-const PUB_ID = 1025324;
-const WEBSITE_ID = 75084;
+const PUB_ID = 1025447;
+const WEBSITE_ID = 75402;
 const Ramp = () => {
    const [rampComponentLoaded, setRampComponentLoaded] = useState(false);
    const pathname = usePathname(); 
