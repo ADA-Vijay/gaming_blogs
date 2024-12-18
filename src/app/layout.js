@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import Footer from "@/components/footer/Footer";
 import Script from "next/script";
 import Head from "next/head";
+const Ramp = dynamic(() => import("@/components/ramp/ramp"), { ssr: false });
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -211,10 +213,15 @@ export default function RootLayout({ children }) {
         <div className="container">
           <Navbar />
           {children}
+          <div id="bottomAds"></div>
+          <div id="leftAds"></div>
+          <div id="rightAds"></div>
           <Footer />
           {/* <GoogleAnalyticsScript /> */}
           <GoogleTag />
         </div>
+        <Ramp />
+
       </body>
     </html>
   );
