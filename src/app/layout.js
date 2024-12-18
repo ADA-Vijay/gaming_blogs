@@ -201,7 +201,7 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "GameTechAnime",
-              url: "https://www.gametechanime.com",
+              url: "https://gametechanime.com",
             }),
           }}
         />
