@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import Footer from "@/components/footer/Footer";
 import Script from "next/script";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 const Ramp = dynamic(() => import("@/components/ramp/ramp"), { ssr: false });
 
 const inter = Inter({ subsets: ["latin"] });
