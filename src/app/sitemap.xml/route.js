@@ -4,11 +4,11 @@ export async function GET(req) {
   // const newsSiteMap = await getNewsSitemap()
   return new Response(`<sitemapindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-  <loc>https://www.gametechanime.com/category-sitemap.xml</loc>
+  <loc>https://gametechanime.com/category-sitemap.xml</loc>
   </sitemap>
   ${url || ""}
   <sitemap>
-  <loc>https://www.gametechanime.com/news-sitemap.xml</loc>
+  <loc>https://gametechanime.com/news-sitemap.xml</loc>
   </sitemap>
   </sitemapindex>`, { headers: { "Content-Type": "text/xml" } })
 }
