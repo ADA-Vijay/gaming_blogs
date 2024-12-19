@@ -25,7 +25,7 @@ export async function getPost(page) {
     return paths.map(item => {
       return `
     <url>
-      <loc>https://www.gametechanime.com${item.slug}</loc>
+      <loc>https://gametechanime.com${item.slug}</loc>
       <lastmod>${item.date}</lastmod>
     </url>
     `;

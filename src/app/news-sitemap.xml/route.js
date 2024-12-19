@@ -55,7 +55,7 @@ export default async function getURL() {
     return paths
       .map((item) => {
         return `<url>
-<loc>https://www.gametechanime.com${item.slug}</loc>
+<loc>https://gametechanime.com${item.slug}</loc>
 <news:news>
 <news:publication>
 <news:name>GameTechAnime</news:name>

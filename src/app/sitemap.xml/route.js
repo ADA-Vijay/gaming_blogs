@@ -29,7 +29,7 @@ export async function getSitemap() {
     return pageNumbers.map((item, index) => {
       return `
     <sitemap>
-      <loc>https://www.gametechanime.com/post-sitemap.xml?page=${index + 1}</loc>
+      <loc>https://gametechanime.com/post-sitemap.xml?page=${index + 1}</loc>
     </sitemap>
     `;
     }).join('');
