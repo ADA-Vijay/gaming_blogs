@@ -191,6 +191,9 @@ export default function RootLayout({ children }) {
         <div className="container">
           <Navbar />
           {children}
+           <aside className="sidebar">
+              <div id="sidebarAd"></div>
+            </aside>
           <div id="bottomAds"></div>
           <div id="leftAds"></div>
           <div id="rightAds"></div>

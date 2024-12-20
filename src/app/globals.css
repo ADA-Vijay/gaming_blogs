@@ -829,3 +829,27 @@ table img {
   font-size: 1.4rem;
   font-family: "Marcellus", serif !important;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-with-sidebar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+main {
+  flex: 1; /* Take up the remaining space */
+  padding: 20px;
+}
+
+.sidebar {
+  width: 300px; /* Ensure the sidebar is at least 300px wide */
+  min-width: 300px;
+  background-color: #f4f4f4; /* Optional background for visibility */
+  padding: 10px;
+}
+
