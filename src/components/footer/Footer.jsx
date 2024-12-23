@@ -153,7 +153,7 @@ function Footer() {
                 >
                   <ul>
                     <li>
-                      <Link href="/about-us" className={styles.link}>
+                      <Link href="/about-us" className={styles.link} aria-label="about us">
                         About Us{" "}
                       </Link>
                     </li>
@@ -163,13 +163,14 @@ function Footer() {
                       <Link
                         href="/contact-us"
                         className={styles.link}
+                        aria-label="contact us"
                       >
                         Contact Us
                       </Link>
                     </li>
 
                     <li>
-                      <Link href="/privacy-policy" className={styles.link}>
+                      <Link href="/privacy-policy" className={styles.link} aria-label="privacy">
                         Privacy
                       </Link>
                     </li>
@@ -183,6 +184,7 @@ function Footer() {
                     <Link
                       href="https://www.youtube.com/@GameTechAnime "
                       className={styles.link}
+                      aria-label="Youtube Link"
                     >
                       <i className="fa-brands fa-youtube"></i>
                     </Link>
@@ -192,6 +194,7 @@ function Footer() {
                     <Link
                       href="https://x.com/GameTechAnime"
                       className={styles.link}
+                      aria-label="Twiiter Link"
                     >
                       <i className="fa-brands fa-x-twitter"></i>
                     </Link>
@@ -200,6 +203,7 @@ function Footer() {
                     <Link
                       href="https://www.linkedin.com/company/gametechanime/"
                       className={styles.link}
+                      aria-label="Linkdin"
                     >
                       <i className="fa-brands fa-linkedin"></i>
                     </Link>
