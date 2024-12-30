@@ -194,7 +194,23 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
-        <script
+         <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "GameTechAnime",
+              alternateName: [
+                "GameTechAnime",
+                "GameTechAnime",
+                "GameTechAnime",
+              ],
+              url: "https://gametechanime.com",
+            }),
+          }}
+        ></script>
+        {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -204,7 +220,7 @@ export default function RootLayout({ children }) {
               url: "https://gametechanime.com",
             }),
           }}
-        />
+        /> */}
       </head>
 
       <body className={inter.className}>
