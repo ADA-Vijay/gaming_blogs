@@ -179,21 +179,37 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": "WebSite",
               name: "GameTechAnime",
+              alternateName: [
+                "GameTechAnime",
+                "GameTechAnime",
+                "GameTechAnime",
+              ],
               url: "https://gametechanime.com",
             }),
           }}
-        />
+        ></script>
+        {/* <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "",
+              url: "https://gametechanime.com",
+            }),
+          }}
+        /> */}
       </head>
 
       <body className={inter.className}>
         <div className="container">
           <Navbar />
           {children}
-           <aside className="sidebar">
-              <div id="sidebarAd"></div>
-            </aside>
+          <aside className="sidebar">
+            <div id="sidebarAd"></div>
+          </aside>
           <div id="bottomAds"></div>
           <div id="leftAds"></div>
           <div id="rightAds"></div>
