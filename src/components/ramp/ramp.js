@@ -28,7 +28,7 @@ const Ramp = () => {
        window.ramp.que.push(() => {
         window.ramp.spaNewPage(pathname); 
     });
-   }, [rampComponentLoaded, pathname]);
+   }, [rampComponentLoaded]);
 
    return null;
 };
