@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { usePathname } from "next/navigation"; // Use this for tracking route changes
+import { usePathname } from "next/navigation"; 
 
 const PUB_ID = 1025447;
 const WEBSITE_ID = 75402;
@@ -14,25 +14,20 @@ const Ramp = () => {
       return;
     }
 
-    // Check if the Ramp script is already loaded
     if (!window.rampScriptLoaded) {
-      window.rampScriptLoaded = true; // Add a flag to the global object to prevent duplicate loading
+      window.rampScriptLoaded = true;
 
-      // Initialize Ramp global object
       window.ramp = window.ramp || {};
       window.ramp.que = window.ramp.que || [];
       window.ramp.passiveMode = true;
 
-      // Create the Ramp script
       const configScript = document.createElement("script");
       configScript.src = `https://cdn.intergient.com/${PUB_ID}/${WEBSITE_ID}/ramp.js`;
       document.body.appendChild(configScript);
 
-      // Handle script loading
       configScript.onload = () => {
         console.log("Ramp script loaded");
 
-        // Check and wait for spaNewPage to be available
         const checkSpaNewPage = setInterval(() => {
           if (window.ramp && typeof window.ramp.spaNewPage === "function") {
             clearInterval(checkSpaNewPage);
@@ -43,7 +38,6 @@ const Ramp = () => {
           }
         }, 100);
 
-        // Stop checking after a timeout (e.g., 10 seconds)
         setTimeout(() => clearInterval(checkSpaNewPage), 10000);
       };
 
@@ -61,7 +55,7 @@ const Ramp = () => {
         }
       });
     }
-  }, [pathname]); // Dependency array ensures it runs on navigation
+  }, [pathname]); 
 
   return null;
 };
