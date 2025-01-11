@@ -838,13 +838,13 @@ table img {
 }
 
 main {
-  flex: 1; /* Take up the remaining space */
+  flex: 1; 
   padding: 20px;
 }
 
 .sidebar {
-  width: 300px; /* Ensure the sidebar is at least 300px wide */
+  width: 300px; 
   min-width: 300px;
-  background-color: #f4f4f4; /* Optional background for visibility */
+  background-color: transparent;
   padding: 10px;
 }
