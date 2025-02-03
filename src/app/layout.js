@@ -228,17 +228,17 @@ export default function RootLayout({ children }) {
         <div className="container">
           <Navbar />
           {children}
-          <aside className="sidebar">
+          {/* <aside className="sidebar">
             <div id="sidebarAd"></div>
           </aside>
           <div id="bottomAds"></div>
           <div id="leftAds"></div>
-          <div id="rightAds"></div>
+          <div id="rightAds"></div> */}
           <Footer />
           {/* <GoogleAnalyticsScript /> */}
           <GoogleTag />
         </div>
-        <Ramp />
+        {/* <Ramp /> */}
       </body>
     </html>
   );
