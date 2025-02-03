@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import RelatedPosts from "@/components/relatedPosts/relatedPosts";
 import Link from "next/link";
 import { fetchFromAPI } from "@/utils/fetchData";
-
+import Head from "next/head";
 async function getData(subcategory) {
   try {
     const data = await fetchFromAPI(`posts?slug=${subcategory}&_embed`, {
@@ -198,6 +198,13 @@ const page = async ({ params }) => {
   };
   return (
     <>
+    <Head>
+    <link
+          rel="canonical"
+          href={`https://www.GameTech.com/${params.category}/${params.subcategory}`}
+          key="canonical"
+        />
+    </Head>
     <RichResultsScript
         structuredData={structuredData}
         breadcrumb={JSON.stringify(breadcrumbStructuredData)}

@@ -62,6 +62,13 @@ const Home = async () => {
     <>
       <Head>
         <link href={"/favicon.ico"} rel={"icon"} sizes="any" />
+        <Head>
+    <link
+          rel="canonical"
+          href={`https://www.GameTech.com/`}
+          key="canonical"
+        />
+    </Head>
       </Head>
       <main className="">
         <LatestPosts></LatestPosts>

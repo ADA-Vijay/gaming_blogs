@@ -2,7 +2,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 import ListingPage from "@/components/listing/listing";
 import { fetchFromAPI } from "@/utils/fetchData";
-
+import Head from "next/head";
 async function getData(category) {
   try {
     const catgoryData = await fetchFromAPI(`categories?slug=${category}`, {
@@ -85,6 +85,13 @@ const Page = async ({ params }) => {
 
   return (
     <>
+     <Head>
+    <link
+          rel="canonical"
+          href={`https://www.GameTech.com/${params.category}`}
+          key="canonical"
+        />
+    </Head>
     {
       <ListingPage newData={data} url={url} />
     }
