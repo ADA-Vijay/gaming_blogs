@@ -142,7 +142,7 @@ const page = async ({ params }) => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
-    "@id": `https://www.GameTech.com/${params.category}/${params.subcategory}`,  // unique ID for the article
+    "@id": `https://www.GametechAnime.com/${params.category}/${params.subcategory}`,  // unique ID for the article
     headline: data.post.yoast_head_json.title,
     image: data.post.yoast_head_json.og_image[0].url,
     thumbnailUrl: data.post.yoast_head_json.og_image[0].url, // Setting the thumbnail URL to the main image URL (or another image if preferred)
@@ -186,13 +186,13 @@ const page = async ({ params }) => {
         "@type": "ListItem",
         position: 1,
         name: params.category,
-        item: `https://www.GameTech.com/${params.category}`,
+        item: `https://www.GametechAnime.com/${params.category}`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: params.subcategory,
-        item: `https://www.GameTech.com/${params.category}/${params.subcategory}`,
+        item: `https://www.GametechAnime.com/${params.category}/${params.subcategory}`,
       },
     ],
   };
@@ -201,7 +201,7 @@ const page = async ({ params }) => {
     <Head>
     <link
           rel="canonical"
-          href={`https://www.GameTech.com/${params.category}/${params.subcategory}`}
+          href={`https://www.GametechAnime.com/${params.category}/${params.subcategory}`}
           key="canonical"
         />
     </Head>

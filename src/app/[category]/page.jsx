@@ -88,7 +88,7 @@ const Page = async ({ params }) => {
      <Head>
     <link
           rel="canonical"
-          href={`https://www.GameTech.com/${params.category}`}
+          href={`https://www.GametechAnime.com/${params.category}`}
           key="canonical"
         />
     </Head>

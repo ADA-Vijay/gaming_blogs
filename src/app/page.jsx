@@ -11,7 +11,6 @@ async function getcategoryData() {
     const categoryResponse = await fetchFromAPI("categories", {
       next: { revalidate: 180 },
     });
-
     const groupedPosts = await Promise.all(
       categoryResponse.map(async (category) => {
         const postResponse = await fetchFromAPI(
@@ -34,7 +33,6 @@ async function getcategoryData() {
     return [];
   }
 }
-
 
 export async function generateMetadata() {
   return {
@@ -65,7 +63,7 @@ const Home = async () => {
         <Head>
     <link
           rel="canonical"
-          href={`https://www.GameTech.com/`}
+          href={`https://www.GametechAnime.com/`}
           key="canonical"
         />
     </Head>
