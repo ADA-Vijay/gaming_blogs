@@ -43,6 +43,9 @@ export async function generateMetadata({ params }) {
       title: category,
       description:
       "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed.",
+      alternates: {
+        canonical: `https://www.GametechAnime.com/${category}`,
+      },
       openGraph: {
         images: [
           {
@@ -85,13 +88,7 @@ const Page = async ({ params }) => {
 
   return (
     <>
-     <Head>
-    <link
-          rel="canonical"
-          href={`https://www.GametechAnime.com/${params.category}`}
-          key="canonical"
-        />
-    </Head>
+  
     {
       <ListingPage newData={data} url={url} />
     }

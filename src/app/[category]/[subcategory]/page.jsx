@@ -58,6 +58,9 @@ export async function generateMetadata({ params }) {
     return {
       title: data.post.yoast_head_json.title,
       description: data.post.yoast_head_json.description,
+      alternates: {
+        canonical: `https://www.GametechAnime.com/${params.category}/${params.subcategory}`,
+      },
       openGraph: {
         images: [
           {
@@ -198,13 +201,7 @@ const page = async ({ params }) => {
   };
   return (
     <>
-    <Head>
-    <link
-          rel="canonical"
-          href={`https://www.GametechAnime.com/${params.category}/${params.subcategory}`}
-          key="canonical"
-        />
-    </Head>
+   
     <RichResultsScript
         structuredData={structuredData}
         breadcrumb={JSON.stringify(breadcrumbStructuredData)}
