@@ -608,8 +608,6 @@ ol {
   color: white !important;
 }
 
-
-
 li ol,
 li ul {
   margin: 5px 0px !important;
@@ -728,7 +726,7 @@ table img {
     gap: 2rem;
     margin-top: 5rem;
     overflow-x: auto;
-}
+  }
 }
 
 .input-search:focus {
@@ -743,10 +741,10 @@ table img {
   border-radius: inherit !important;
   border: none !important;
 }
-.react-multi-carousel-list { 
+.react-multi-carousel-list {
   height: 36rem !important;
 }
-.react-multi-carousel-dot button { 
+.react-multi-carousel-dot button {
   border: none !important;
   border-radius: inherit !important;
   background-color: rgb(156, 156, 156);
@@ -796,7 +794,7 @@ table img {
   background-color: #e5e2e2 !important;
   color: black !important;
 }
-.wp-element-caption{
+.wp-element-caption {
   color: white;
 }
 .page_promoTitle__vSPTp {
@@ -813,23 +811,21 @@ table img {
   background-position: center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
-
 }
-.bannerTitle{
+.bannerTitle {
   padding-top: 3.1rem !important;
 }
 .page_latestBox__nxGJQ a {
-  color:#ff8100  !important;
+  color: #ff8100 !important;
   text-decoration: unset;
 }
-.wp-block-heading{
+.wp-block-heading {
   font-family: "Marcellus", serif !important;
 }
-.h1fonts{
+.h1fonts {
   font-size: 1.4rem;
   font-family: "Marcellus", serif !important;
 }
-
 
 .content-with-sidebar {
   display: flex;
@@ -838,13 +834,18 @@ table img {
 }
 
 main {
-  flex: 1; 
+  flex: 1;
   padding: 20px;
 }
 
 .sidebar {
-  width: 300px; 
+  width: 300px;
   min-width: 300px;
   background-color: transparent;
   padding: 10px;
+}
+
+p strong {
+  overflow-wrap: break-word;
+  pointer-events: auto;
 }
