@@ -118,7 +118,7 @@ const Listing = ({ newData, url }) => {
               ) : null}
             </div>
           </div>
-          <div className={styles.latestContent2}>
+          {/* <div className={styles.latestContent2}>
             <div className={styles.latestContent2Wrap}>
               <h2>Most Popular</h2>
               <div className={styles.latestContent2Data}>
@@ -152,7 +152,7 @@ const Listing = ({ newData, url }) => {
                 ) : null}
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

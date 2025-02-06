@@ -5,11 +5,12 @@ import RelatedPosts from "@/components/relatedPosts/relatedPosts";
 import Link from "next/link";
 import { fetchFromAPI } from "@/utils/fetchData";
 import Head from "next/head";
+import NotFound from "@/app/not-found";
 async function getData(subcategory) {
   try {
     const data = await fetchFromAPI(`posts?slug=${subcategory}&_embed`, {
       next: { revalidate: 180 },
-    }); 
+    });
 
     if (data && data.length > 0) {
       const postTags = data[0].tags;
@@ -54,7 +55,7 @@ const getPostByCategory = async (params) => {
 
 export async function generateMetadata({ params }) {
   const data = await getData(params.subcategory);
-  if (data ) {
+  if (data) {
     return {
       title: data.post.yoast_head_json.title,
       description: data.post.yoast_head_json.description,
@@ -88,7 +89,6 @@ export async function generateMetadata({ params }) {
   }
 }
 
-
 const RichResultsScript = ({ structuredData, breadcrumb }) => (
   <>
     <script
@@ -109,6 +109,9 @@ const page = async ({ params }) => {
   const category = params.category;
   const subcategory = params.subcategory;
   const data = await getData(subcategory);
+  if (!data) {
+    return notFound();
+  }
   const { post, tags } = data;
 
   const formatDate = (isoDate) => {
@@ -116,9 +119,7 @@ const page = async ({ params }) => {
     const date = new Date(isoDate);
     return date.toLocaleDateString("en-US", options);
   };
-  if (!data) {
-    return notFound();
-  }
+  
   const hash = params.hash;
   let hashOffset = 0;
 
@@ -145,18 +146,21 @@ const page = async ({ params }) => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
-    "@id": `https://www.GametechAnime.com/${params.category}/${params.subcategory}`,  // unique ID for the article
+    "@id": `https://www.GametechAnime.com/${params.category}/${params.subcategory}`, // unique ID for the article
     headline: data.post.yoast_head_json.title,
     image: data.post.yoast_head_json.og_image[0].url,
     thumbnailUrl: data.post.yoast_head_json.og_image[0].url, // Setting the thumbnail URL to the main image URL (or another image if preferred)
     datePublished: `${data.modified}Z`,
     dateModified: `${data.post.modified}Z`,
     isAccessibleForFree: "True",
-    articleBody: data.post.content.rendered.replace(/<[^>]*>?/gm, ''), // Stripping HTML tags
+    articleBody: data.post.content.rendered.replace(/<[^>]*>?/gm, ""), // Stripping HTML tags
     author: {
       "@type": "Person",
       name: data.post._embedded.author[0].name,
-      url: `https://www.GameTechAnime.com/author/${data.post._embedded.author[0].name.replace(" ", "-")}`
+      url: `https://www.GameTechAnime.com/author/${data.post._embedded.author[0].name.replace(
+        " ",
+        "-"
+      )}`,
     },
     publisher: {
       "@type": "Organization",
@@ -179,7 +183,6 @@ const page = async ({ params }) => {
     description: data.post.yoast_head_json.description,
     inLanguage: "en-US",
   };
-  
 
   const breadcrumbStructuredData = {
     "@context": "https://schema.org",
@@ -201,8 +204,7 @@ const page = async ({ params }) => {
   };
   return (
     <>
-   
-    <RichResultsScript
+      <RichResultsScript
         structuredData={structuredData}
         breadcrumb={JSON.stringify(breadcrumbStructuredData)}
       />
@@ -252,13 +254,15 @@ const page = async ({ params }) => {
                               ></div>
                               {post && (
                                 <>
-                                  <RelatedPosts
+                                  {/* <RelatedPosts
                                     category={params.category}
                                     data={categoryPosts}
-                                  ></RelatedPosts>
+                                  ></RelatedPosts> */}
                                   {tags.length > 0 && (
                                     <>
-                                      <h2 className={styles.relatedTopic}>Related Topics</h2>
+                                      <h2 className={styles.relatedTopic}>
+                                        Related Topics
+                                      </h2>
                                       {tags.map((tag) => (
                                         <Link
                                           key={tag.id}
