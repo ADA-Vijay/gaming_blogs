@@ -60,7 +60,7 @@ export async function generateMetadata({ params }) {
       title: data.post.yoast_head_json.title,
       description: data.post.yoast_head_json.description,
       alternates: {
-        canonical: `https://www.GametechAnime.com/${params.category}/${params.subcategory}`,
+        canonical: `https://GametechAnime.com/${params.category}/${params.subcategory}`,
       },
       openGraph: {
         images: [

@@ -40,7 +40,7 @@ export async function generateMetadata() {
     description:
       "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed.",
       alternates: {
-        canonical: `https://www.GametechAnime.com`,
+        canonical: `https://GametechAnime.com`,
       },
     images: [
       {
