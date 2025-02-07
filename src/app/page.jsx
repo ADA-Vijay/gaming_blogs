@@ -39,9 +39,9 @@ export async function generateMetadata() {
     title: "GameTechAnime",
     description:
       "Discover guides and news on esports, gaming, entertainment, and tech at GameTechAnime. We provide timely coverage to keep you informed.",
-      alternates: {
-        canonical: `https://GametechAnime.com`,
-      },
+    alternates: {
+      canonical: `https://GametechAnime.com`,
+    },
     images: [
       {
         url: "https://fama.b-cdn.net/GameTech/gtlogo.png",
@@ -63,7 +63,6 @@ const Home = async () => {
     <>
       <Head>
         <link href={"/favicon.ico"} rel={"icon"} sizes="any" />
-        
       </Head>
       <main className="">
         <LatestPosts></LatestPosts>
