@@ -143,7 +143,9 @@ function Footer() {
             <ul className={styles["item-ul-wrap"]}>
               <li>
                 <div className={styles.footerLogoImg}>
-                  <img src="https://fama.b-cdn.net/GameTech/gtlogo.png" alt="logo" />
+                <Link href="/" className={styles.link} aria-label="about us">
+                  <img src="https://fama.b-cdn.net/GameTech/GameTechLogo.webp" alt="logo" />
+                  </Link>
                 </div>
               </li>
               <li>
