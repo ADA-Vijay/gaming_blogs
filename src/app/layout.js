@@ -123,10 +123,10 @@ export default function RootLayout({ children }) {
           href="https://fonts.gstatic.com"
           crossOrigin="true"
         />
-        <link
+        {/* <link
           href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap"
           rel="stylesheet"
-        />
+        /> */}
 
         <link
           rel="icon"

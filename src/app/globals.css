@@ -849,3 +849,7 @@ p strong {
   overflow-wrap: break-word;
   pointer-events: auto;
 }
+
+p{
+  letter-spacing: 0.5px !important
+}
