@@ -237,12 +237,12 @@ const page = async ({ params }) => {
                               </Link>
                               <span> Published: {formatDate(post.date)}</span>
                             </div>
-                            <div className={styles.listingDetailMainImg}>
+                            {/* <div className={styles.listingDetailMainImg}>
                               <img
                                 src={post.jetpack_featured_media_url}
                                 alt="img"
                               />
-                            </div>
+                            </div> */}
                             <div
                               id={hash}
                               className={styles.subListingDetailsItem}
