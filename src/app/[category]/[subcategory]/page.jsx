@@ -55,38 +55,41 @@ const getPostByCategory = async (params) => {
 
 export async function generateMetadata({ params }) {
   const data = await getData(params.subcategory);
-  if (data) {
-    return {
-      title: data.post.yoast_head_json.title,
-      description: data.post.yoast_head_json.description,
-      alternates: {
-        canonical: `https://GametechAnime.com/${params.category}/${params.subcategory}`,
-      },
-      openGraph: {
-        images: [
-          {
-            url: data.post.yoast_head_json.og_image[0].url,
-            height: 1200,
-            width: 600,
-            alt: "Alt",
-          },
-        ],
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: data.post.yoast_head_json.title,
-        description: data.post.yoast_head_json.description,
-        creator: data.post._embedded.author[0].name,
-        images: {
-          url: data.post.yoast_head_json.og_image[0].url,
+
+  if (!data?.post?.yoast_head_json) return {}; // Handle missing data gracefully
+
+  return {
+    title: data.post.yoast_head_json.title || "",
+    description: data.post.yoast_head_json.description || "",
+    alternates: {
+      canonical: `https://GametechAnime.com/${params.category}/${params.subcategory}`,
+    },
+    openGraph: {
+      images: [
+        {
+          url: data?.post?.yoast_head_json?.og_image?.[0]?.url || "",
+          height: 1200,
+          width: 600,
+          alt: "Alt",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: data.post.yoast_head_json.title || "gametechanime",
+      description: data.post.yoast_head_json.description || "gametechanime",
+      creator: data?.post?._embedded?.author?.[0]?.name || "gametechanime",
+      images: [
+        {
+          url: data?.post?.yoast_head_json?.og_image?.[0]?.url || "",
           width: "1200",
           height: "600",
-          alt: data.post.yoast_head_json.title,
-          site: "GameTechAnime",
+          alt: data?.post?.yoast_head_json?.title || "gametechanime",
         },
-      },
-    };
-  }
+      ],
+      site: "GameTechAnime",
+    },
+  };
 }
 
 const RichResultsScript = ({ structuredData, breadcrumb }) => (
