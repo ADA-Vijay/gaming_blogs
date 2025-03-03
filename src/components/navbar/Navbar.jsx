@@ -71,7 +71,7 @@ const Navbar = async () => {
           
             <img
               className={styles.mobLogo}
-              src="https://fama.b-cdn.net/GameTech/gtlogo.png"
+              src="https://fama.b-cdn.net/GameTech/FClogo.jpg"
               alt="logo"
               style={{ width: "100%" }}
             />
@@ -106,7 +106,7 @@ const Navbar = async () => {
             <Link href="/" className={styles.logo}>
               <img
                 className={styles.DesktopLogo}
-                src="https://fama.b-cdn.net/GameTech/gtlogo.png"
+                src="https://fama.b-cdn.net/GameTech/FClogo.jpg"
                 alt="logo"
               />
             </Link>
