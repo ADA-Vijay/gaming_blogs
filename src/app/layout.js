@@ -118,11 +118,11 @@ export default function RootLayout({ children }) {
         <meta property="og:type" content="website" />
 
         {/* <link rel="preconnect" href="https://fonts.googleapis.com" /> */}
-        <link
+        {/* <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="true"
-        />
+        /> */}
         {/* <link
           href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap"
           rel="stylesheet"
