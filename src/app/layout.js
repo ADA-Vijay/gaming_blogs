@@ -117,7 +117,7 @@ export default function RootLayout({ children }) {
         <meta property="og:url" content="https://gametechanime.com/" />
         <meta property="og:type" content="website" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com" /> */}
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
@@ -189,12 +189,7 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
+        {/* <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" /> */}
          <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -188,7 +188,8 @@ function Footer() {
                       className={styles.link}
                       aria-label="Youtube Link"
                     >
-                      <i className="fa-brands fa-youtube"></i>
+                    Youtube
+                      {/* <i className="fa-brands fa-youtube"></i> */}
                     </Link>
                   </li>
 
@@ -196,9 +197,10 @@ function Footer() {
                     <Link
                       href="https://x.com/GameTechAnime"
                       className={styles.link}
-                      aria-label="Twiiter Link"
+                      aria-label="Twitter Link"
                     >
-                      <i className="fa-brands fa-x-twitter"></i>
+                    Twitter
+                      {/* <i className="fa-brands fa-x-twitter"></i> */}
                     </Link>
                   </li>
                   <li className={styles.liIcon}>
