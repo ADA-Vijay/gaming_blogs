@@ -1,5 +1,6 @@
 export async function fetchFromAPI(endpoint, options = {}) {
-  const ApiUrl = "https://editor.gametechanime.com/wp-json/wp/v2/";
+  // const ApiUrl = "https://editor.gametechanime.com/wp-json/wp/v2/";
+  const ApiUrl = ""
 
   try {
     const response = await fetch(ApiUrl + endpoint, options);
